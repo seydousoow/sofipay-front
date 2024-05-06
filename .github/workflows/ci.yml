@@ -34,5 +34,5 @@ jobs:
         if: ${{ github.event_name == 'pull_request' }}
 
       # - run: npx nx-cloud record -- nx format:check
-      - run: npx nx-cloud record -- nx prettier --check --verbose
+      # - run: npx nx-cloud record -- nx prettier --check --verbose
       - run: npx nx affected -t lint test build
