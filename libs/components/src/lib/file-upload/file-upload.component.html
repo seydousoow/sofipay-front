@@ -1,0 +1,31 @@
+<div (click)="file.click()" (dragover)="onDragOver($event)" (drop)="onFileDropped($event)"
+  [class.invalid]="invalid" class="drop-container tw-cursor-pointer">
+  @if (fileNames.length === 0) {
+    <p [innerHTML]="label"
+    class="tw-text-center tw-text-xs tw-italic tw-font-medium tw-text-gray-900"></p>
+  } @else {
+    @for (name of fileNames; track name) {
+      <p [innerText]="name"
+      class="tw-text-center tw-font-bold tw-text-gray-900"></p>
+    }
+  }
+
+
+  <p class="tw-text-center tw-text-xs tw-italic tw-font-medium tw-text-gray-900">
+    Extensions de fichier autorisées : {{fileFormat}} (max {{maxFileSize}})
+  </p>
+
+  <horizon-button (click)="$event.stopPropagation()" (clicked)="file.click()" [class.tw-pointer-events-none]="disabled"
+    [disabled]="disabled" class="tw-flex tw-flex-nowrap tw-gap-x-2">
+    <horizon-icon classes="tw-w-4" name="upload"></horizon-icon>
+    <span>Importer</span>
+  </horizon-button>
+  <input #file
+    (change)="onFileSelected($event)"
+    [id]="id"
+    [multiple]="multipleFile"
+    [name]="name"
+    accept="{{ fileFormat }}"
+    class="tw-sr-only"
+    type="file"/>
+</div>

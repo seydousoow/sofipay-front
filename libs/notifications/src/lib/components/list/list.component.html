@@ -1,0 +1,10 @@
+<div class="tw-flex tw-w-full tw-flex-col tw-items-center tw-space-y-4 sm:tw-items-end">
+  <ng-container *ngrxLet="{ notifications: notifications$ } as vm">
+    @for (notification of vm.notifications; track notification) {
+      <horizon-notification
+        (closed)="close(notification)"
+        [notification]="notification"
+      ></horizon-notification>
+    }
+  </ng-container>
+</div>

@@ -1,0 +1,44 @@
+<div class="tw-flex tw-gap-y-4 tw-flex-col md:tw-flex-row md:tw-items-center">
+  <div class="tw-flex tw-w-full tw-items-center tw-gap-x-4">
+    @if (icon) {
+      <div class="card-icon tw-flex tw-p-2 tw-rounded-full tw-justify-center tw-items-center">
+        <horizon-icon [name]="icon" classes="tw-h-4 tw-w-4 tw-text-white"></horizon-icon>
+      </div>
+    }
+    <p class="tw-text-lg">{{ cardTitle }}</p>
+    <div class="tw-ml-auto">
+      <ng-content select="[right-content]"></ng-content>
+    </div>
+    @if (closeable) {
+      <button (click)="open = !open"
+              class="tw-justify-end auto focus:tw-ring-1 tw-ring-offset-4 tw-ring-black focus-visible:tw-outline-none tw-rounded-full">
+        <horizon-icon [name]="open ? 'minus' : 'plus'" classes="tw-h-4 tw-w-4 tw-text-black"></horizon-icon>
+      </button>
+    }
+    @if (actionIcon && !closeable) {
+      <button (click)="clicked.emit()"
+              class="tw-justify-end focus:tw-ring-1 tw-ring-offset-4 tw-ring-black focus-visible:tw-outline-none tw-rounded-full">
+        <horizon-icon [name]="actionIcon" classes="tw-h-4 tw-w-4 tw-text-black"></horizon-icon>
+      </button>
+    }
+  </div>
+</div>
+
+@if (closeable && open) {
+  <div [class.-tw-mb-6]="noPadding" [class.-tw-mx-8]="noPadding">
+    <ng-template [ngTemplateOutlet]="content"></ng-template>
+  </div>
+}
+
+@if (!closeable) {
+  <div [class.-tw-mb-6]="noPadding" [class.-tw-mx-8]="noPadding">
+    <ng-template [ngTemplateOutlet]="content"></ng-template>
+  </div>
+}
+
+
+<ng-template #content>
+  <div class="tw-mt-8">
+    <ng-content></ng-content>
+  </div>
+</ng-template>

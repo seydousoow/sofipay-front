@@ -1,0 +1,31 @@
+@if (opened) {
+  <dialog aria-labelledby="modal-title" aria-modal="true" class="tw-relative tw-z-[999]">
+    <horizon-overlay></horizon-overlay>
+    <div class="tw-fixed tw-inset-0 tw-z-[999] tw-overflow-y-auto">
+    <div [ngClass]="{
+      'tw-justify-center': horizontalAlignment === 'center',
+      'tw-justify-start': horizontalAlignment === 'start',
+      'tw-justify-end': horizontalAlignment === 'end',
+      'sm:tw-items-center': horizontalAlignment === 'center',
+      'sm:tw-items-start': horizontalAlignment === 'start',
+      'sm:tw-items-end': horizontalAlignment === 'end',
+    }" class="tw-flex tw-min-h-full tw-items-end tw-p-4 tw-text-center">
+        <div (outsideClick)="close()" [ngClass]="sizeClass"
+          class="tw-relative tw-transform tw-rounded-lg tw-px-4 {{ noBackground ? 'tw-bg-transparent' : 'tw-bg-white tw-shadow-xl' }} tw-pb-4 tw-pt-5 tw-text-left tw-transition-all sm:tw-my-8 tw-w-full sm:tw-p-6"
+          horizonOutsideClick>
+          @if (xDismissible) {
+            <div class="tw-absolute tw-right-0 tw-top-0 tw-pr-4 tw-pt-4">
+              <button (click)="close()"
+                class="tw-rounded-md tw-bg-white tw-text-gray-400 hover:tw-text-gray-500 focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-black focus:tw-ring-offset-2"
+                type="button">
+                <span class="tw-sr-only">Fermer</span>
+                <horizon-icon classes="tw-h-5 tw-w-5" name="close"></horizon-icon>
+              </button>
+            </div>
+          }
+          <ng-content></ng-content>
+        </div>
+      </div>
+    </div>
+  </dialog>
+}

@@ -1,0 +1,56 @@
+<div class="tw-text-black">
+  <label [class.tw-sr-only]="noLabel" [for]="id"
+    class="tw-flex tw-items-center tw-ml-1 tw-text-sm tw-font-medium tw-text-gray-700">
+    <span [innerHTML]="label"></span>
+    @if (required) {
+      <span>&nbsp;*</span>
+    }
+    @if (!readonly && maxLength) {
+      <span class="tw-ml-auto tw-mr-1 tw-text-xs">{{ length }} / {{ maxLength }}</span>
+    }
+  </label>
+  @if (!readonly) {
+    <div class="tw-mt-2 tw-relative">
+      @if (inputType !== "textarea") {
+        <input
+          (keyup)="updateValue($event)"
+          [autocomplete]="autocomplete" [disabled]="disabled"
+          [id]="id" [name]="name || id" [ngClass]="classes"
+          [placeholder]="placeholder" [step]="step" [type]="inputType" [value]="value"
+          class="tw-block tw-py-2 tw-pl-3 tw-pr-6 tw-w-full tw-rounded-2xl tw-shadow-md tw-text-xs sm:tw-text-sm disabled:tw-cursor-not-allowed disabled:tw-border-gray-200 disabled:tw-bg-gray-50 disabled:tw-text-gray-900"/>
+      } @else {
+        @if (inputType === "textarea") {
+          <textarea
+            (keyup)="updateValue($event)"
+            [disabled]="disabled" [id]="id" [name]="name || id" [ngClass]="classes"
+            [placeholder]="placeholder"
+            [value]="value"
+            class="tw-shadow-md tw-block tw-w-full tw-text-xs sm:tw-text-sm tw-rounded-2xl disabled:tw-cursor-not-allowed disabled:tw-border-gray-200 disabled:tw-bg-gray-50 disabled:tw-text-gray-900"
+          rows="4"></textarea>
+        }
+      }
+      <button (click)="resetValue()" class="tw-absolute tw-inset-y-0 tw-right-2" tabindex="-1">
+        <horizon-icon classes="tw-w-4 tw-h-4" name="close"></horizon-icon>
+      </button>
+      <ng-template #textarea>
+        @if (inputType === "textarea") {
+          <textarea
+            (keyup)="updateValue($event)"
+            [disabled]="disabled" [id]="id" [name]="name || id" [ngClass]="classes"
+            [placeholder]="placeholder"
+            [value]="value"
+            class="tw-shadow-md tw-block tw-w-full tw-text-xs sm:tw-text-sm tw-rounded-2xl disabled:tw-cursor-not-allowed disabled:tw-border-gray-200 disabled:tw-bg-gray-50 disabled:tw-text-gray-900"
+          rows="4"></textarea>
+        }
+      </ng-template>
+    </div>
+  } @else {
+    <p class="tw-ml-1 tw-mb-3 tw-text-xs md:tw-text-sm tw-font-semibold tw-text-black">{{value ?? '--'}}</p>
+  }
+  @if (invalid) {
+    <p class="tw-text-xs tw-text-red-600">
+      <ng-content></ng-content>
+    </p>
+  }
+
+</div>

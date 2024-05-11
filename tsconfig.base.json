@@ -1,0 +1,29 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2022",
+    "module": "es2020",
+    "lib": ["es2022", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@libs/*": ["libs/*"],
+      "@sofitay/atoms": ["libs/atoms/src/index.ts"],
+      "@sofitay/components": ["libs/components/src/index.ts"],
+      "@sofitay/models": ["libs/models/src/index.ts"],
+      "@sofitay/notifications": ["libs/notifications/src/index.ts"],
+      "@sofitay/outside-click": ["libs/directive/outside-click/src/index.ts"],
+      "@sofitay/router-store": ["libs/router-store/src/index.ts"],
+      "@sofitay/utils": ["libs/utils/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

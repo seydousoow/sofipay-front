@@ -1,0 +1,13 @@
+:host {
+    @apply tw-fixed tw-z-10 tw-bottom-0 tw-left-0 tw-m-0 tw-p-0 tw-right-0 tw-rounded-none tw-bg-white tw-h-16 tw-shadow-xl;
+
+    @media screen(md) {
+        left: 64px;
+    }
+}
+
+:host.reduce {
+    @media screen(md) {
+        left: 250px;
+    }
+}

@@ -1,0 +1,7 @@
+:host:not(.button) {
+  @apply tw-rounded-xl tw-transition-opacity tw-cursor-pointer tw-opacity-60 tw-underline tw-underline-offset-4 tw-text-sm hover:tw-opacity-100 focus:tw-ring-1 tw-ring-offset-4 tw-ring-black focus-visible:tw-outline-none;
+}
+
+:host.button {
+  @apply tw-cursor-pointer tw-transition tw-text-sm tw-px-4 tw-py-2.5 tw-w-fit tw-rounded-xl tw-border tw-bg-black tw-text-white focus:tw-ring-1 tw-ring-offset-2 tw-ring-black focus-visible:tw-outline-none hover:tw-text-black hover:tw-bg-white hover:tw-border-black;
+}

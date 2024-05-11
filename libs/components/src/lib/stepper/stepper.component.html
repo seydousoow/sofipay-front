@@ -1,0 +1,48 @@
+<div [ngTemplateOutlet]="selected ? selected.content : null"></div>
+
+<footer>
+  <horizon-button (clicked)="previous()" [disabled]="previousDisabled" [reverse]="true">
+    <div class="tw-flex tw-items-center tw-gap-x-2">
+      <horizon-icon classes="tw-w-4 tw-h-4" name="arrow-left"></horizon-icon>
+      <span class="tw-sr-only md:tw-not-sr-only">{{ backTitle }}</span>
+    </div>
+  </horizon-button>
+
+  <div class="tw-flex tw-items-center tw-mx-auto">
+    @for (step of steps; track step; let i = $index) {
+      <div class="tw-flex tw-items-center">
+        @if (i === selectedIndex) {
+          <horizon-icon
+            class="tw-p-1.5 tw-bg-black tw-text-white tw-rounded-full"
+          classes="tw-h-4 tw-w-4" name="pencil"></horizon-icon>
+        } @else {
+          <span
+          class="tw-text-sm tw-py-1 tw-px-2.5 tw-opacity-40 tw-bg-black tw-text-white tw-rounded-full">{{ i + 1 }}</span>
+        }
+        <span [ngClass]="selectedIndex === i ? 'tw-font-semibold' : 'tw-text-gray-700'"
+        class="tw-text-sm tw-sr-only md:tw-not-sr-only md:tw-ml-2">{{ step.label | titlecase }}</span>
+        @if (i !== steps.length -1) {
+          <hr class="tw-mx-2 tw-w-3 tw-border-gray-600"/>
+        }
+      </div>
+    }
+  </div>
+
+  @if (selectedIndex !== steps.length - 1) {
+    <horizon-button (clicked)="next()"
+      [disabled]="nextDisabled">
+      <div class="tw-flex tw-items-center tw-gap-x-2">
+        <span class="tw-sr-only md:tw-not-sr-only">Précédent</span>
+        <horizon-icon classes="tw-w-4 tw-h-4" name="arrow-right"></horizon-icon>
+      </div>
+    </horizon-button>
+  } @else {
+    <horizon-button (clicked)="confirmed.emit()" [disabled]="nextDisabled">
+      <div class="tw-flex tw-items-center tw-gap-x-2">
+        <span class="tw-sr-only md:tw-not-sr-only">Suivant</span>
+        <horizon-icon classes="tw-w-4 tw-h-4" name="arrow-right"></horizon-icon>
+      </div>
+    </horizon-button>
+  }
+
+</footer>

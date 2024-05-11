@@ -1,0 +1,24 @@
+<div class='tw-relative tw-flex tw-items-center tw-gap-x-2'>
+  <div class="tw-absolute tw-left-3" role="search">
+    <horizon-icon aria-hidden="true" classes="tw-w-4 tw-text-black" name="search"></horizon-icon>
+  </div>
+  <label [for]="id" class="tw-sr-only">Recherche</label>
+  <input #inputElement (ngModelChange)="this.search.next($event)" [(ngModel)]="value"
+    [class.sm:tw-w-60]="!fullWidth && size === 'medium'" [class.tw-shadow-md]="withShadow" [disabled]="disabled"
+    [id]="id" [name]="name"
+         [ngClass]="{
+          'tw-text-xs': size === 'small' || size === 'medium',
+          'tw-py-1': size === 'small',
+          'tw-py-1.5': size === 'medium',
+          'tw-py-2.5 tw-text-sm': size === 'large'
+          }" [value]="value" aria-label="Search Users" autocomplete="off"
+    class="tw-text-black tw-block tw-pl-8 tw-pr-7 tw-w-full tw-rounded-xl tw-border-gray-300 focus:tw-border-gray-500 focus:tw-ring-gray-500 focus:tw-outline-none"
+    placeholder="Recherche" role="searchbox" type="text"/>
+
+  @if (showCloseIcon && inputElement.value.length > 0) {
+    <button (click)="value = ''; this.search.next(null)"
+      class="tw-absolute tw-right-3 focus:tw-ring-1 tw-ring-offset-2 tw-ring-black focus-visible:tw-outline-none tw-rounded-full">
+      <horizon-icon aria-hidden="true" classes="tw-w-4 tw-test-black" name="close"></horizon-icon>
+    </button>
+  }
+</div>

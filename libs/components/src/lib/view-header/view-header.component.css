@@ -1,0 +1,29 @@
+:host {
+  @apply tw-bg-white tw-z-[150] tw-top-10 tw-sticky tw-flex tw-flex-wrap tw-w-full tw-gap-2 tw-basis-auto tw-flex-row tw-px-2.5 tw-py-2.5;
+  @apply tw-items-start tw-justify-between md:tw-pt-8 md:tw-pb-2.5 md:tw-top-0 lg:tw-flex-nowrap tw-mt-2;
+}
+
+:host .view-header__fixed {
+  @apply tw-flex tw-flex-col tw-flex-grow-0 tw-flex-shrink tw-basis-auto tw-self-start tw-gap-2.5;
+}
+
+:host .view-header__fixed .app-btn {
+  @apply tw-mr-0;
+}
+
+:host .view-header__fixed .view-header__fixed_title .view-header__fixed_title_text,
+:host .view-header__fixed .view-header__fixed_title .view-header__fixed_title_underline {
+  @apply tw-my-0.5 tw-mx-0 md:tw-whitespace-nowrap;
+}
+
+:host .view-header__fixed .view-header__fixed_title .view-header__fixed_title_underline {
+  @apply tw-text-gray-500 tw-text-sm md:tw-text-base;
+}
+
+:host .view-header__fixed:not(:last-child) {
+  @apply tw-mr-px;
+}
+
+:host .view-header__actions {
+  @apply tw-ml-auto tw-items-center tw-justify-items-center tw-gap-2.5 lg:tw-flex lg:tw-flex-row lg:tw-justify-between lg:tw-flex-wrap lg:tw-gap-4;
+}

@@ -1,0 +1,9 @@
+:host input::-webkit-outer-spin-button,
+:host input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+:host input[type=number] {
+  -moz-appearance: textfield;
+}

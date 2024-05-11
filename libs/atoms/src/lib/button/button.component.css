@@ -1,0 +1,33 @@
+:host {
+  @apply tw-h-fit;
+}
+
+:host:not(.link) {
+  @apply tw-transition tw-text-sm tw-px-4 tw-py-2.5 tw-w-fit tw-rounded-xl tw-border tw-border-white tw-bg-black tw-text-white focus:tw-ring-1 tw-ring-offset-2 tw-ring-black focus-visible:tw-outline-none hover:tw-text-black hover:tw-bg-white hover:tw-border-black;
+}
+
+:host:not(.link).reverse {
+  @apply tw-bg-white tw-border-black tw-text-black hover:tw-text-white hover:tw-bg-black hover:tw-border-white;
+}
+
+:host:not(.link).icon-only {
+  @apply tw-h-10 tw-w-10 tw-px-0 tw-flex tw-items-center tw-justify-center;
+}
+
+:host.link {
+  @apply tw-rounded-xl tw-transition-opacity tw-cursor-pointer tw-opacity-60 tw-underline tw-underline-offset-4 tw-text-sm hover:tw-opacity-100 focus:tw-ring-1 tw-ring-offset-4 tw-ring-black focus-visible:tw-outline-none;
+}
+
+:host:not(.link).alert {
+  @apply tw-bg-white tw-border-red-500 tw-text-red-500 hover:tw-text-white hover:tw-bg-red-600 hover:tw-border-red-600;
+}
+
+:host:not(.link).action {
+  @apply tw-text-black tw-bg-white tw-border-hz-lightgray hover:tw-bg-hz-lightgray;
+}
+
+:host:not(.link).action.activated {
+  @apply tw-text-black tw-border-hz-lightgray tw-bg-hz-lightgray;
+}
+
+

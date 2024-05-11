@@ -1,0 +1,81 @@
+<label [class.tw-sr-only]="noLabel" [id]="id + '-label'"
+  class="tw-block tw-ml-1 tw-text-sm tw-font-medium tw-leading-5 tw-text-gray-900">
+  <span>{{ label }}</span>
+  @if (required) {
+    <span> *</span>
+  }
+</label>
+<div [class.tw-mt-2]="!noLabel" class="tw-relative">
+  <button #trigger="cdkOverlayOrigin" (click)="toggle()" (keydown)="handleKeyboardNavigation($event)"
+    [attr.aria-expanded]="isOpen" [attr.aria-labelledby]="id + '-label'"
+          [disabled]="disabled" [ngClass]="{
+          'tw-py-1': size === 'small',
+          'tw-py-1.5': size === 'medium',
+          'tw-py-2': size === 'large'
+          }" aria-haspopup="listbox" cdkOverlayOrigin
+    class="{{ classes }} tw-relative tw-w-full tw-border tw-cursor-default tw-rounded-2xl tw-bg-white tw-pl-3 tw-pr-10 tw-text-left tw-text-gray-900 tw-shadow-sm focus:tw-outline-none focus:tw-ring-1 disabled:tw-bg-gray-50 sm:tw-leading-6"
+    type="button">
+
+    <span [ngClass]="{
+          'tw-text-xs': size === 'small' || size === 'medium',
+          'tw-text-sm': size === 'large'
+          }" class="tw-block tw-truncate">
+      {{ selectedItemsLabel || (placeholder) }}
+    </span>
+
+    <span class="tw-pointer-events-none tw-absolute tw-inset-y-0 tw-right-0 tw-flex tw-items-center tw-pr-2">
+      <horizon-icon aria-hidden="true" classes="tw-h-5 tw-w-5 tw-text-gray-800" name="chevron-up-down"></horizon-icon>
+    </span>
+    @if (invalid) {
+      <span
+        class="tw-pointer-events-none tw-absolute tw-inset-y-0 tw-right-0 tw-flex tw-items-center tw-pr-2">
+        <horizon-icon aria-hidden="true" classes="tw-h-5 tw-w-5 tw-text-red-500" name="exclamation-circle"></horizon-icon>
+      </span>
+    }
+  </button>
+
+  <ng-template (backdropClick)="toggle()" [cdkConnectedOverlayMinWidth]="width" [cdkConnectedOverlayOpen]="isOpen"
+    [cdkConnectedOverlayOrigin]="trigger"
+    cdkConnectedOverlay cdkConnectedOverlayHasBackdrop cdkScrollable
+    >
+    <ul [attr.aria-labelledby]="id + '-label'" [attr.aria-multiselectable]="multiple"
+      class="tw-z-10 tw-mt-1 tw-max-h-60 tw-w-full tw-overflow-auto tw-rounded-2xl tw-bg-white tw-py-1 tw-text-base tw-shadow-md tw-ring-1 tw-ring-black tw-ring-opacity-5 focus:tw-outline-none sm:tw-text-sm focus:tw-ring-gray-600 focus:tw-ring-opacity-100"
+      role="listbox" tabindex="-1">
+      @if (searchable) {
+        <li class="tw-px-1 tw-mb-2 tw-block">
+          <horizon-search (valueChange)="searched.emit($event)" [id]="'search-' + id"
+          [name]="'search-' + id"></horizon-search>
+        </li>
+      }
+
+      @for (item of items; track item; let i = $index) {
+        <li (click)="toggleValue(item)" (mouseenter)="highlightedElement = i"
+          (mouseleave)="highlightedElement = undefined"
+          [attr.aria-selected]="selectedItems.includes(item)"
+          [id]="id + '-option-' + i"
+          [ngClass]="highlightedElement === i ? 'tw-text-white tw-bg-black' : 'tw-text-gray-900'"
+          class="tw-relative tw-cursor-pointer tw-py-2 tw-pl-3 tw-pr-9 tw-block" role="option"
+          >
+          <span [ngClass]="selectedItems.includes(item) ? 'tw-font-semibold' : 'tw-font-normal'"
+          class="tw-block tw-truncate tw-text-xs sm:tw-text-sm">{{ item.label }}</span>
+          @if (selectedItems.includes(item)) {
+            <span
+              [ngClass]="highlightedElement === i ? 'tw-text-white' : 'tw-text-green-600'"
+              class="tw-absolute tw-inset-y-0 tw-right-0 tw-flex tw-items-center tw-pr-4">
+              <horizon-icon aria-hidden="true" classes="tw-h-5 tw-w-5" name="check-circle"></horizon-icon>
+            </span>
+          }
+        </li>
+      }
+
+      @if (!items.length) {
+        <li class="tw-relative tw-cursor-default tw-py-2 tw-pl-3 tw-pr-9 tw-block">Aucun résultat</li>
+      }
+    </ul>
+  </ng-template>
+</div>
+@if (invalid) {
+  <p class="tw-text-sm tw-text-red-600 tw-truncate">
+    <ng-content></ng-content>
+  </p>
+}

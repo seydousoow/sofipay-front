@@ -1,0 +1,55 @@
+<table>
+  @if (caption) {
+    <caption class="caption">{{ caption }}</caption>
+  }
+  <thead [class.tw-sticky]="stickyPx" [ngClass]="headerColor"
+    [style.top]="stickyPx + 'px'" class="tw-z-10">
+    <tr>
+      @for (column of columns; track column; let first = $first; let last = $last) {
+        <th
+          [class.lg:tw-rounded-tl-3xl]="first"
+          [class.lg:tw-rounded-tr-3xl]="last"
+          [class]="column.class"
+          [style.max-width]="column.width ? column.width + '%' : 'auto'"
+          [style.width]="column.width ? column.width + '%' : 'auto'">
+          @if (column.sortableField) {
+            <button (click)="sortBy(column.sortableField)"
+              [class.tw-justify-center]="column.class === 'tw-text-center'"
+              class="tw-flex tw-items-center tw-gap-x-2" tabindex="-1">
+              <span [textContent]="column.name" class="tw-uppercase tw-font-normal"></span>
+              @if (sort.property !== column.sortableField) {
+                <horizon-icon
+                  class="focus:tw-ring-1 tw-ring-black focus-visible:tw-outline-none tw-rounded-full"
+                  classes="tw-w-3 tw-h-3" name="chevron-up-down" tabindex="0">
+                </horizon-icon>
+              } @else {
+                @if (sort.direction === 'asc') {
+                  <horizon-icon
+                    class="focus:tw-ring-1 tw-ring-black focus-visible:tw-outline-none tw-rounded-full"
+                    classes="tw-w-3"
+                  name="caret-up-fill" tabindex="0"></horizon-icon>
+                }
+                @if (sort.direction === 'desc') {
+                  <horizon-icon
+                    class="focus:tw-ring-1 tw-ring-black focus-visible:tw-outline-none tw-rounded-full"
+                    classes="tw-w-3" name="caret-down-fill"
+                  tabindex="0"></horizon-icon>
+                }
+              }
+            </button>
+          } @else {
+            @if (column.name !== 'checkbox') {
+              <span class="tw-uppercase tw-font-normal">{{ column.name }}</span>
+            } @else {
+              <horizon-checkbox (toggled)="toggle($event)" [checked]="check" [noLabel]="true" id="random" label=""></horizon-checkbox>
+            }
+          }
+        </th>
+      }
+    </tr>
+  </thead>
+
+  <tbody>
+    <ng-content></ng-content>
+  </tbody>
+</table>

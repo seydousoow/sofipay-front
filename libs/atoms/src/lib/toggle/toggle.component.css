@@ -1,0 +1,9 @@
+:host {
+  @apply tw-bg-hz-gray tw-relative tw-inline-flex tw-h-6 tw-w-11 tw-flex-shrink-0 tw-cursor-pointer;
+  @apply tw-flex tw-gap-x-4 tw-rounded-full tw-border-2 tw-border-transparent;
+  @apply tw-transition-colors tw-duration-200 tw-ease-in-out focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-black focus:tw-ring-offset-2;
+}
+
+:host.enabled {
+  @apply tw-bg-black;
+}

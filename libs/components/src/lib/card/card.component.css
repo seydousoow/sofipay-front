@@ -1,0 +1,15 @@
+:host {
+  @apply tw-block tw-bg-hz-lightgray tw-px-8 tw-py-6 tw-rounded-3xl tw-text-hz-gray;
+}
+
+:host .card-icon {
+  @apply tw-bg-hz-gray;
+}
+
+:host.blue {
+  @apply tw-bg-hz-lightblue tw-text-hz-blue;
+}
+
+:host.blue .card-icon {
+  @apply tw-bg-hz-blue;
+}

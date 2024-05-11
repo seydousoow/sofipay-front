@@ -1,0 +1,17 @@
+<div [class.disabled]="disabled" [class.tw-flex-row-reversed]="labelAfterCheck"
+  class='tw-relative tw-flex tw-items-center tw-gap-x-2'>
+  <div [ngClass]='invalid ? "tw-text-red-500" : "tw-text-gray-900"' class='tw-min-w-0 tw-leading-6'>
+    <label [class.tw-cursor-not-allowed]="disabled" [class.tw-sr-only]="noLabel" [for]='id'
+      class='tw-select-none tw-font-medium'>
+      {{ label }}
+      @if (required) {
+        <span>*</span>
+      }
+    </label>
+  </div>
+  <div class='tw-flex tw-items-center'>
+    <input (change)='updateValue()' [checked]="checked" [disabled]="disabled" [id]='id' [name]='name'
+      class='tw-h-3 tw-w-3 tw-rounded-full tw-border-gray-300 tw-text-black focus:tw-ring-black focus:tw-ring-1 focus-visible:tw-outline-none'
+      type='radio'>
+  </div>
+</div>

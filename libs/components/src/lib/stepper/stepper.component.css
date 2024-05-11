@@ -1,0 +1,17 @@
+:host footer {
+  @apply tw-fixed tw-flex tw-bg-white tw-shadow-lg tw-bottom-0 tw-left-0 tw-right-0 tw-border-t tw-justify-between;
+
+  @apply tw-px-2 tw-py-3 tw-z-[151];
+}
+
+
+@media screen(md) {
+  :host footer {
+    left: 69px;
+    @apply tw-p-3;
+  }
+
+  :host.reduce footer {
+    left: 250px;
+  }
+}

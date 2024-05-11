@@ -1,0 +1,23 @@
+<div
+  class="tw-w-full tw-h-full tw-py-3 tw-px-4 tw-flex tw-flex-row tw-flex-nowrap tw-justify-between tw-items-center tw-border-t tw-border-solid tw-border-t-neutral-200 tw-bg-white">
+
+  <div class="tw-h-full tw-flex tw-flex-nowrap tw-justify-center tw-items-center">
+    <label for="pagination" class="tw-block tw-text-xs tw-mr-2 tw-font-medium tw-leading-6 tw-text-gray-900">Éléments par page :</label>
+    <horizon-select (changed)="changeSize($event)" [items]="options" [noLabel]="true" [selectedValues]="[size]"
+                    id="pagination" label="" placeholder=""></horizon-select>
+  </div>
+
+  <div class="tw-flex tw-flex-nowrap tw-justify-end tw-items-center tw-h-full">
+    <p class="tw-m-0 tw-text-xs">{{ getNarratedPage() }}</p>
+    <button (click)="previous()" [disabled]="page === 0"
+            class="tw-flex tw-justify-center tw-items-center tw-bg-black tw-w-6 tw-h-6 tw-ml-3.5 tw-rounded-lg tw-cursor-pointer tw-ring-offset-2 tw-ring-black focus:tw-ring-1 focus-visible:tw-outline-none">
+      <horizon-icon classes="tw-h-4 tw-text-white" name="chevron-left"></horizon-icon>
+    </button>
+
+    <button (click)="next()" [disabled]="isLast"
+            class="tw-flex tw-justify-center tw-items-center tw-bg-black tw-w-6 tw-h-6 tw-mx-3.5 tw-rounded-lg tw-cursor-pointer tw-ring-offset-2 tw-ring-black focus:tw-ring-1 focus-visible:tw-outline-none">
+      <horizon-icon classes="tw-h-4 tw-text-white" name="chevron-right"></horizon-icon>
+    </button>
+  </div>
+
+</div>

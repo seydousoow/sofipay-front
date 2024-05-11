@@ -1,0 +1,45 @@
+<div class="view-header__fixed">
+  <div class="tw-flex-wrap tw-items-center tw-gap-2.5 tw-flex view-header__fixed_title_container">
+    <div class="tw-items-center tw-flex tw-gap-2.5 lg:tw-gap-4">
+
+      @if (historyBack) {
+        <a [class]="backBtnColor"
+          class="tw-bg-gray-200 tw-text-black tw-border tw-border-solid tw-border-gray-200 tw-w-9 tw-h-9 tw-flex tw-justify-center tw-items-center tw-rounded-xl tw-px-2.5 tw-py-2 md:tw-w-10 md:tw-h-10 focus:tw-ring-1 tw-ring-offset-2 tw-ring-black focus-visible:tw-outline-none"
+          href="javascript:history.go(-1)">
+          <horizon-icon classes="tw-w-4 tw-h-4" name="arrow-left"></horizon-icon>
+        </a>
+      } @else {
+        @if (backLink) {
+          <a [class]="backBtnColor" [queryParams]="paramsBackLink" [routerLink]="backLink"
+            class="tw-bg-gray-200 tw-text-black tw-border tw-border-solid tw-border-gray-200 tw-w-9 tw-h-9 tw-flex tw-justify-center tw-items-center tw-rounded-xl tw-px-2.5 tw-py-2 md:tw-w-10 md:tw-h-10 focus:tw-ring-1 tw-ring-offset-2 tw-ring-black focus-visible:tw-outline-none">
+            <horizon-icon classes="tw-w-4 tw-h-4" name="arrow-left"></horizon-icon>
+          </a>
+        }
+        @if (!backLink) {
+          <button (click)="backClicked.emit()"
+            class="tw-bg-gray-200 tw-text-black tw-border tw-border-solid tw-border-gray-200 tw-w-9 tw-h-9 tw-flex tw-justify-center tw-items-center tw-rounded-xl tw-px-2.5 tw-py-2 md:tw-w-10 md:tw-h-10 focus:tw-ring-1 tw-ring-offset-2 tw-ring-black focus-visible:tw-outline-none">
+            <horizon-icon classes="tw-w-4 tw-h-4" name="arrow-left"></horizon-icon>
+          </button>
+        }
+      }
+
+      <div class="justify-between view-header__fixed_title d-flex flex-column">
+        <h1 class="view-header__fixed_title_text">{{ title }}</h1>
+        @if (subTitle) {
+          <p class="view-header__fixed_title_underline">{{ subTitle }}</p>
+        }
+      </div>
+
+    </div>
+
+    <ng-content select="[header-info]"></ng-content>
+  </div>
+
+  <ng-content select="[left-action]"></ng-content>
+</div>
+
+<div
+  class="tw-flex tw-justify-center tw-flex-row tw-flex-wrap tw-gap-2.5 tw-items-center sm:tw-justify-between sm:tw-gap-5 sm:tw-items-baseline tw-flex-1 tw-basis-auto">
+  <ng-content select="[right-action]"></ng-content>
+
+</div>

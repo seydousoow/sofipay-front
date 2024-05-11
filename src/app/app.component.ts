@@ -2,10 +2,12 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NxWelcomeComponent } from './nx-welcome.component';
 import { SvgIconRegistryService } from 'angular-svg-icon';
+import { Store } from '@ngrx/store';
+import { ListComponent } from '@sofitay/notifications';
 
 @Component({
   standalone: true,
-  imports: [NxWelcomeComponent, RouterModule],
+  imports: [NxWelcomeComponent, RouterModule, ListComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
@@ -13,7 +15,7 @@ import { SvgIconRegistryService } from 'angular-svg-icon';
 export class AppComponent {
   title = 'sofitay';
 
-  constructor(registry: SvgIconRegistryService) {
+  constructor(registry: SvgIconRegistryService, private store: Store) {
     const basePath = '../assets/icons';
     registry.loadSvg(`${basePath}/folder.svg`, 'document-docs')?.subscribe();
     registry.loadSvg(`${basePath}/map-pin.svg`, 'map-pin')?.subscribe();
