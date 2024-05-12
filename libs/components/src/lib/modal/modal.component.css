@@ -1,7 +1,7 @@
 div[role=dialog] > div > div:has(img.carousel-displayed) {
-    @apply tw-p-0;
+    @apply p-0;
 }
 
 div[role=dialog] > div > div:has(img.carousel-displayed) > div {
-    @apply tw-m-0 tw-max-w-[unset] tw-h-screen tw-overflow-clip tw-rounded-none;
+    @apply m-0 max-w-[unset] h-screen overflow-clip rounded-none;
 }

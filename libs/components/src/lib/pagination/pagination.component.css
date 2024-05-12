@@ -1,5 +1,5 @@
 :host {
-    @apply tw-fixed tw-z-10 tw-bottom-0 tw-left-0 tw-m-0 tw-p-0 tw-right-0 tw-rounded-none tw-bg-white tw-h-16 tw-shadow-xl;
+    @apply fixed z-10 bottom-0 left-0 m-0 p-0 right-0 rounded-none bg-white h-16 shadow-xl;
 
     @media screen(md) {
         left: 64px;

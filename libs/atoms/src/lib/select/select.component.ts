@@ -51,12 +51,12 @@ export class SelectComponent<T = string> implements ControlValueAccessor, OnInit
 
   get classes(): string {
     return this.invalid
-      ? 'tw-border-red-300 tw-text-red-900 tw-placeholder-red-300 focus:tw-border-red-500 focus:tw-outline-none focus:tw-ring-red-500'
+      ? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500'
       : this.borderColorClasses;
   }
 
   private get borderColorClasses(): string {
-    return 'tw-border-gray-300 focus:tw-border-gray-500 focus:tw-ring-gray-500 focus:tw-outline-none';
+    return 'border-gray-300 focus:border-gray-500 focus:ring-gray-500 focus:outline-none';
   }
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-explicit-any

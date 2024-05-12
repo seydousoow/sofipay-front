@@ -1,29 +1,29 @@
 <cdk-accordion-item #accordionItem="cdkAccordionItem" [attr.aria-controls]="'accordion-body-' + index"
                     [attr.aria-expanded]="accordionItem.expanded" [attr.id]="'accordion-header-' + index"
-                    class="tw-text-{{titleSize}}"
+                    class="text-{{titleSize}}"
                     role="button"
                     tabindex="-1">
   <button (click)="accordionItem.toggle(); toggled.emit()"
-          [ngClass]="[!noColor ? 'tw-bg-blue-50' : '', accordionItem.expanded ? '' : 'tw-border-b-0 tw-border-slate-200']"
-          class="tw-w-full tw-flex tw-font-semibold tw-p-3 tw-cursor-pointer tw-items-center"
+          [ngClass]="[!noColor ? 'bg-blue-50' : '', accordionItem.expanded ? '' : 'border-b-0 border-slate-200']"
+          class="w-full flex font-semibold p-3 cursor-pointer items-center"
           tabindex="-1">
 
     <horizon-icon [name]="accordionItem.expanded ? 'chevron-down' : 'chevron-right'"
-                  class="tw-mr-4 focus:tw-ring-1 tw-ring-offset-2 tw-ring-black focus-visible:tw-outline-none tw-rounded-full"
-                  classes="tw-w-3 tw-h-3"
+                  class="mr-4 focus:ring-1 ring-offset-2 ring-black focus-visible:outline-none rounded-full"
+                  classes="w-3 h-3"
                   tabindex="0"></horizon-icon>
 
-    <span class="tw-flex tw-gap-x-2 tw-items-center">
+    <span class="flex gap-x-2 items-center">
       @if (icon) {
-        <horizon-icon [name]="icon" class="tw-hidden sm:tw-block" classes="tw-h-4 tw-w-4"></horizon-icon>
+        <horizon-icon [name]="icon" class="hidden sm:block" classes="h-4 w-4"></horizon-icon>
       }
       {{ label }}
     </span>
 
-    <span class="tw-ml-auto">
+    <span class="ml-auto">
       <ng-content select="[center-content]"></ng-content>
     </span>
-    <span class="tw-ml-auto tw-hidden sm:tw-block">
+    <span class="ml-auto hidden sm:block">
       <ng-content select="[right-content]"></ng-content>
     </span>
   </button>

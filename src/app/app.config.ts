@@ -10,6 +10,10 @@ import { provideAngularSvgIcon } from 'angular-svg-icon';
 import { provideHttpClient } from '@angular/common/http';
 import { NotificationsStoreModule } from '@sofitay/notifications';
 import { RouterStoreModule } from '@sofitay/router-store';
+import { AuthenticationService } from './services/authentication.service';
+import { RoleService } from './services/role.service';
+import { AuthenticatedGuard } from './guards/authenticated.guard';
+import { PermissionGuard } from './guards/permission.guard';
 
 registerLocaleData(localeFr);
 
@@ -22,5 +26,9 @@ export const appConfig: ApplicationConfig = {
     DecimalPipe,
     { provide: LOCALE_ID, useValue: 'fr-FR' },
     importProvidersFrom(RouterStoreModule, NotificationsStoreModule),
+    AuthenticationService,
+    RoleService,
+    AuthenticatedGuard,
+    PermissionGuard
   ]
 };

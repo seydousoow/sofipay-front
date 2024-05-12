@@ -13,7 +13,7 @@ import { OverlayComponent } from '../overlay/overlay.component';
 })
 export class ModalComponent {
   @Input() opened = false;
-  @Input() sizeClass = 'sm:tw-max-w-lg';
+  @Input() sizeClass = 'sm:max-w-lg';
   @Input() xDismissible = false;
   @Input() horizontalAlignment: 'center' | 'start' | 'end' = 'center';
   @Input() verticalAlignment: 'center' | 'start' | 'end' = 'center';

@@ -1,9 +1,9 @@
 :host {
-  @apply tw-bg-hz-gray tw-relative tw-inline-flex tw-h-6 tw-w-11 tw-flex-shrink-0 tw-cursor-pointer;
-  @apply tw-flex tw-gap-x-4 tw-rounded-full tw-border-2 tw-border-transparent;
-  @apply tw-transition-colors tw-duration-200 tw-ease-in-out focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-black focus:tw-ring-offset-2;
+  @apply bg-hz-gray relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer;
+  @apply flex gap-x-4 rounded-full border-2 border-transparent;
+  @apply transition-colors duration-200 ease-in-out focus:outline-none focus:ring-1 focus:ring-black focus:ring-offset-2;
 }
 
 :host.enabled {
-  @apply tw-bg-black;
+  @apply bg-black;
 }

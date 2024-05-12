@@ -6,3 +6,5 @@ export * from './lib/role.model';
 export * from './lib/icon.model';
 export * from './lib/filter.model';
 export * from './lib/document.model';
+export * from './lib/user.model';
+export * from './lib/menu.model';

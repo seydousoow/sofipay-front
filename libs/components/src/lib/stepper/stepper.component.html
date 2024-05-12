@@ -2,27 +2,27 @@
 
 <footer>
   <horizon-button (clicked)="previous()" [disabled]="previousDisabled" [reverse]="true">
-    <div class="tw-flex tw-items-center tw-gap-x-2">
-      <horizon-icon classes="tw-w-4 tw-h-4" name="arrow-left"></horizon-icon>
-      <span class="tw-sr-only md:tw-not-sr-only">{{ backTitle }}</span>
+    <div class="flex items-center gap-x-2">
+      <horizon-icon classes="w-4 h-4" name="arrow-left"></horizon-icon>
+      <span class="sr-only md:not-sr-only">{{ backTitle }}</span>
     </div>
   </horizon-button>
 
-  <div class="tw-flex tw-items-center tw-mx-auto">
+  <div class="flex items-center mx-auto">
     @for (step of steps; track step; let i = $index) {
-      <div class="tw-flex tw-items-center">
+      <div class="flex items-center">
         @if (i === selectedIndex) {
           <horizon-icon
-            class="tw-p-1.5 tw-bg-black tw-text-white tw-rounded-full"
-          classes="tw-h-4 tw-w-4" name="pencil"></horizon-icon>
+            class="p-1.5 bg-black text-white rounded-full"
+          classes="h-4 w-4" name="pencil"></horizon-icon>
         } @else {
           <span
-          class="tw-text-sm tw-py-1 tw-px-2.5 tw-opacity-40 tw-bg-black tw-text-white tw-rounded-full">{{ i + 1 }}</span>
+          class="text-sm py-1 px-2.5 opacity-40 bg-black text-white rounded-full">{{ i + 1 }}</span>
         }
-        <span [ngClass]="selectedIndex === i ? 'tw-font-semibold' : 'tw-text-gray-700'"
-        class="tw-text-sm tw-sr-only md:tw-not-sr-only md:tw-ml-2">{{ step.label | titlecase }}</span>
+        <span [ngClass]="selectedIndex === i ? 'font-semibold' : 'text-gray-700'"
+        class="text-sm sr-only md:not-sr-only md:ml-2">{{ step.label | titlecase }}</span>
         @if (i !== steps.length -1) {
-          <hr class="tw-mx-2 tw-w-3 tw-border-gray-600"/>
+          <hr class="mx-2 w-3 border-gray-600"/>
         }
       </div>
     }
@@ -31,16 +31,16 @@
   @if (selectedIndex !== steps.length - 1) {
     <horizon-button (clicked)="next()"
       [disabled]="nextDisabled">
-      <div class="tw-flex tw-items-center tw-gap-x-2">
-        <span class="tw-sr-only md:tw-not-sr-only">Précédent</span>
-        <horizon-icon classes="tw-w-4 tw-h-4" name="arrow-right"></horizon-icon>
+      <div class="flex items-center gap-x-2">
+        <span class="sr-only md:not-sr-only">Précédent</span>
+        <horizon-icon classes="w-4 h-4" name="arrow-right"></horizon-icon>
       </div>
     </horizon-button>
   } @else {
     <horizon-button (clicked)="confirmed.emit()" [disabled]="nextDisabled">
-      <div class="tw-flex tw-items-center tw-gap-x-2">
-        <span class="tw-sr-only md:tw-not-sr-only">Suivant</span>
-        <horizon-icon classes="tw-w-4 tw-h-4" name="arrow-right"></horizon-icon>
+      <div class="flex items-center gap-x-2">
+        <span class="sr-only md:not-sr-only">Suivant</span>
+        <horizon-icon classes="w-4 h-4" name="arrow-right"></horizon-icon>
       </div>
     </horizon-button>
   }

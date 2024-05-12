@@ -1,18 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
 import { SvgIconRegistryService } from 'angular-svg-icon';
 import { Store } from '@ngrx/store';
-import { ListComponent } from '@sofitay/notifications';
+import { initFlowbite } from 'flowbite';
+import { NotificationsUserActions } from '@sofitay/notifications';
+import { INotification } from '@sofitay/models';
 
 @Component({
   standalone: true,
-  imports: [NxWelcomeComponent, RouterModule, ListComponent],
+  imports: [RouterModule],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'sofitay';
 
   constructor(registry: SvgIconRegistryService, private store: Store) {
@@ -69,6 +70,12 @@ export class AppComponent {
     registry.loadSvg(`${basePath}/star.svg`, 'star')?.subscribe();
     registry.loadSvg(`${basePath}/image.svg`, 'image')?.subscribe();
     registry.loadSvg(`${basePath}/square2x2.svg`, 'square2x2')?.subscribe();
+  }
+
+  ngOnInit() {
+    initFlowbite();
+    const notification: INotification = {timeout: 10000, icon: 'header-alert', title: 'test timeout'}
+    this.store.dispatch(NotificationsUserActions.addNotification({notification}))
   }
 
 }

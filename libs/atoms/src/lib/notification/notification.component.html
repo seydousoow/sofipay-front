@@ -1,22 +1,22 @@
-<div class='tw-p-4'>
-  <div class='tw-flex tw-items-start'>
-    <div class='tw-flex-shrink-0'>
+<div class='p-4'>
+  <div class='flex items-start'>
+    <div class='flex-shrink-0'>
       <horizon-icon [classes]='classes' [name]='notification.icon' aria-hidden='true'></horizon-icon>
     </div>
-    <div class='tw-ml-3 tw-w-0 tw-flex-1 tw-pt-0.5'>
-      <p class='tw-text-sm tw-font-bold tw-text-white'>{{ notification.title }}</p>
+    <div class='ml-3 w-0 flex-1 pt-0.5'>
+      <p class='text-sm font-bold text-white'>{{ notification.title }}</p>
       @if (notification.subTitle) {
         <p [innerHTML]='notification.subTitle'
-        class='tw-mt-1 tw-text-xs tw-text-gray-200'></p>
+        class='mt-1 text-xs text-gray-200'></p>
       }
     </div>
-    <div class='tw-ml-4 tw-flex tw-flex-shrink-0'>
+    <div class='ml-4 flex flex-shrink-0'>
       <button (click)='closed.emit()'
-        class='tw-inline-flex tw-rounded-md tw-bg-white tw-text-gray-400 hover:tw-text-gray-500 focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-black focus:tw-ring-offset-2'
+        class='inline-flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-1 focus:ring-black focus:ring-offset-2'
         type='button'
         >
-        <span class='tw-sr-only'>Close</span>
-        <horizon-icon aria-hidden='true' classes='tw-h-5 tw-w-5' name='close'></horizon-icon>
+        <span class='sr-only'>Close</span>
+        <horizon-icon aria-hidden='true' classes='h-5 w-5' name='close'></horizon-icon>
       </button>
     </div>
   </div>

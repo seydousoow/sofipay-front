@@ -15,7 +15,7 @@ export class NotificationComponent {
   @Output() closed = new EventEmitter<void>();
 
   get classes(): string {
-    const size = 'tw-h-6 tw-w-6';
-    return this.notification.iconColor ? `${size} tw-text-${this.notification.iconColor}-400` : `${size} tw-text-gray-400`;
+    const size = 'h-6 w-6';
+    return this.notification.iconColor ? `${size} text-${this.notification.iconColor}-400` : `${size} text-gray-400`;
   }
 }

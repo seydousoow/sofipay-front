@@ -1,9 +1,4 @@
-export type TRole =
-  'CUSTOMER_ADMIN'
-  | 'CUSTOMER'
-  | 'TECHNICAL_ADMIN'
-  | 'BUSINESS_ADMIN'
-  | 'ACCOUNT_MANAGER';
+export type TRole = 'TRANSPORTER' | 'CLIENT' | 'ADMIN';
 
 type TCustomerFilePermission = 'READ_CUSTOMER_FILE';
 

@@ -1,15 +1,15 @@
 :host .drop-container {
-    @apply tw-mx-auto tw-my-4 tw-py-6 tw-px-2 tw-grid tw-grid-cols-1 tw-gap-x-2 tw-gap-y-4 tw-justify-items-center;
-    @apply tw-bg-zinc-100 tw-rounded-2xl tw-w-full tw-border-dashed tw-border-2 tw-border-zinc-400;
+    @apply mx-auto my-4 py-6 px-2 grid grid-cols-1 gap-x-2 gap-y-4 justify-items-center;
+    @apply bg-zinc-100 rounded-2xl w-full border-dashed border-2 border-zinc-400;
     min-height: 174px;
 }
 
 :host .drop-container p:first-child{
     min-height: 32px;
-    @apply tw-flex tw-items-center
+    @apply flex items-center
 }
 
 :host .drop-container.invalid {
-    @apply tw-bg-red-400 tw-border-red-800;
+    @apply bg-red-400 border-red-800;
 }
 

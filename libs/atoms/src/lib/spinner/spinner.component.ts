@@ -8,6 +8,6 @@ import { NgClass } from '@angular/common';
   templateUrl: './spinner.component.html',
 })
 export class SpinnerComponent {
-  @Input() colorClasses = 'tw-fill-white';
-  @Input() sizeClasses = 'tw-w-4 tw-h-4';
+  @Input() colorClasses = 'fill-white';
+  @Input() sizeClasses = 'w-4 h-4';
 }

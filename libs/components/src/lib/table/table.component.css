@@ -1,39 +1,39 @@
 horizon-table > table {
-  @apply tw-w-full tw-table-fixed tw-border-spacing-0 tw-rounded-2xl lg:tw-shadow-lg lg:tw-rounded-3xl lg:tw-bg-white;
+  @apply w-full table-fixed border-spacing-0 rounded-2xl lg:shadow-lg lg:rounded-3xl lg:bg-white;
   border-collapse: unset;
 }
 
 horizon-table > table tr {
-  @apply tw-relative tw-text-left;
+  @apply relative text-left;
 }
 
 horizon-table > table td,
 horizon-table > table th,
 horizon-table > table a,
 horizon-table > table button {
-  @apply tw-text-xs;
+  @apply text-xs;
 }
 
 horizon-table > table th,
 horizon-table > table td {
-  @apply tw-px-3 tw-py-1.5 tw-h-11;
+  @apply px-3 py-1.5 h-11;
 }
 
 horizon-table > table th:first-child,
 horizon-table > table td:first-child {
-  @apply tw-pl-5;
+  @apply pl-5;
 }
 
 horizon-table > table thead {
-  @apply tw-text-black tw-font-normal tw-h-7 tw-hidden lg:tw-table-header-group;
+  @apply text-black font-normal h-7 hidden lg:table-header-group;
 }
 
 horizon-table > table.sticky-head thead {
-  @apply tw-sticky tw-top-14 tw-z-[90];
+  @apply sticky top-14 z-[90];
 }
 
-horizon-table > table thead.tw-sticky::after {
-  @apply tw-bg-white tw-h-full tw-absolute tw-top-0 ;
+horizon-table > table thead.sticky::after {
+  @apply bg-white h-full absolute top-0 ;
   content: '';
   left: -1%;
   width: 102%;
@@ -41,81 +41,81 @@ horizon-table > table thead.tw-sticky::after {
 }
 
 horizon-table > table thead tr {
-  @apply tw-z-[2];
+  @apply z-[2];
 }
 
 horizon-table > table thead th {
-  @apply tw-bg-gray-100;
+  @apply bg-gray-100;
 }
 
 horizon-table > table thead.red th {
-  @apply tw-bg-red-100;
+  @apply bg-red-100;
 }
 
 horizon-table > table thead.salmon th {
-  @apply tw-bg-orange-100;
+  @apply bg-orange-100;
 }
 
 horizon-table > table thead.blue th {
-  @apply tw-bg-blue-50;
+  @apply bg-blue-50;
 }
 
 horizon-table > table thead.magnolia th {
-  @apply tw-bg-fuchsia-50;
+  @apply bg-fuchsia-50;
 }
 
 horizon-table > table thead.green th {
-  @apply tw-bg-green-50;
+  @apply bg-green-50;
 }
 
 horizon-table > table thead th button {
-  @apply tw-p-0 tw-flex tw-w-full tw-uppercase tw-text-center lg:tw-text-left tw-items-center tw-font-normal;
+  @apply p-0 flex w-full uppercase text-center lg:text-left items-center font-normal;
 }
 
 horizon-table > table tbody tr {
-  @apply tw-flex tw-flex-wrap tw-rounded-2xl tw-overflow-hidden tw-bg-white tw-shadow-lg lg:tw-table-row lg:tw-rounded-none lg:tw-overflow-visible lg:tw-bg-transparent lg:tw-shadow-none;
+  @apply flex flex-wrap rounded-2xl overflow-hidden bg-white shadow-lg lg:table-row lg:rounded-none lg:overflow-visible lg:bg-transparent lg:shadow-none;
 }
 
 horizon-table > table tbody tr:not(:last-child) {
-  @apply tw-mb-3.5 lg:tw-mb-0;
+  @apply mb-3.5 lg:mb-0;
 }
 
 horizon-table > table tbody tr td {
-  @apply first:tw-flex-grow first:tw-flex-shrink-0 first:tw-basis-full first:tw-items-start tw-z-10 tw-flex tw-justify-center tw-flex-col tw-flex-nowrap tw-w-auto tw-border-0 tw-py-2 tw-pr-3.5 lg:tw-z-auto lg:tw-table-cell lg:tw-px-3 lg:tw-py-3;
+  @apply first:flex-grow first:flex-shrink-0 first:basis-full first:items-start z-10 flex justify-center flex-col flex-nowrap w-auto border-0 py-2 pr-3.5 lg:z-auto lg:table-cell lg:px-3 lg:py-3;
 }
 
 horizon-table > table tbody tr:not(:last-child) td {
-  @apply lg:tw-border-0 lg:tw-border-b lg:tw-border-solid lg:tw-border-b-gray-200;
+  @apply lg:border-0 lg:border-b lg:border-solid lg:border-b-gray-200;
 }
 
 horizon-table > table tbody td span {
-  @apply tw-line-clamp-2 tw-text-ellipsis lg:tw-flex lg:tw-items-center;
+  @apply line-clamp-2 text-ellipsis lg:flex lg:items-center;
 }
 
 horizon-table > table thead + tbody tr td {
-  @apply first:tw-bg-gray-100 first:lg:tw-bg-transparent;
+  @apply first:bg-gray-100 first:lg:bg-transparent;
 }
 
 horizon-table > table thead.red + tbody tr td {
-  @apply first:tw-bg-red-100 first:lg:tw-bg-transparent;
+  @apply first:bg-red-100 first:lg:bg-transparent;
 }
 
 horizon-table > table thead.salmon + tbody tr td {
-  @apply first:tw-bg-orange-100 first:lg:tw-bg-transparent;
+  @apply first:bg-orange-100 first:lg:bg-transparent;
 }
 
 horizon-table > table thead.blue + tbody tr td {
-  @apply first:tw-bg-blue-50 first:lg:tw-bg-transparent;
+  @apply first:bg-blue-50 first:lg:bg-transparent;
 }
 
 horizon-table > table thead.magnolia + tbody tr td {
-  @apply first:tw-bg-fuchsia-50 first:lg:tw-bg-transparent;
+  @apply first:bg-fuchsia-50 first:lg:bg-transparent;
 }
 
 horizon-table > table tbody td.actions-cell {
-  @apply tw-absolute tw-top-0 tw-p-0 tw-right-2.5 lg:tw-relative lg:tw-top-auto lg:tw-right-auto lg:tw-justify-center before:lg:tw-content-[""] before:lg:tw-w-px before:lg:tw-top-1.5 before:lg:tw-left-0 before:lg:tw-absolute before:lg:tw-bg-gray-200 before:lg:tw-h-[calc(100%-12px)] after:tw-rounded-none after:tw-rounded-bl-2xl after:tw-rounded-br-2xl;
+  @apply absolute top-0 p-0 right-2.5 lg:relative lg:top-auto lg:right-auto lg:justify-center before:lg:content-[""] before:lg:w-px before:lg:top-1.5 before:lg:left-0 before:lg:absolute before:lg:bg-gray-200 before:lg:h-[calc(100%-12px)] after:rounded-none after:rounded-bl-2xl after:rounded-br-2xl;
 }
 
 horizon-table > table tbody td.actions-cell > span.justify-center {
-  @apply lg:tw-justify-center;
+  @apply lg:justify-center;
 }

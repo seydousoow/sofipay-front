@@ -1,24 +1,24 @@
 <div class="view-header__fixed">
-  <div class="tw-flex-wrap tw-items-center tw-gap-2.5 tw-flex view-header__fixed_title_container">
-    <div class="tw-items-center tw-flex tw-gap-2.5 lg:tw-gap-4">
+  <div class="flex-wrap items-center gap-2.5 flex view-header__fixed_title_container">
+    <div class="items-center flex gap-2.5 lg:gap-4">
 
       @if (historyBack) {
         <a [class]="backBtnColor"
-          class="tw-bg-gray-200 tw-text-black tw-border tw-border-solid tw-border-gray-200 tw-w-9 tw-h-9 tw-flex tw-justify-center tw-items-center tw-rounded-xl tw-px-2.5 tw-py-2 md:tw-w-10 md:tw-h-10 focus:tw-ring-1 tw-ring-offset-2 tw-ring-black focus-visible:tw-outline-none"
+          class="bg-gray-200 text-black border border-solid border-gray-200 w-9 h-9 flex justify-center items-center rounded-xl px-2.5 py-2 md:w-10 md:h-10 focus:ring-1 ring-offset-2 ring-black focus-visible:outline-none"
           href="javascript:history.go(-1)">
-          <horizon-icon classes="tw-w-4 tw-h-4" name="arrow-left"></horizon-icon>
+          <horizon-icon classes="w-4 h-4" name="arrow-left"></horizon-icon>
         </a>
       } @else {
         @if (backLink) {
           <a [class]="backBtnColor" [queryParams]="paramsBackLink" [routerLink]="backLink"
-            class="tw-bg-gray-200 tw-text-black tw-border tw-border-solid tw-border-gray-200 tw-w-9 tw-h-9 tw-flex tw-justify-center tw-items-center tw-rounded-xl tw-px-2.5 tw-py-2 md:tw-w-10 md:tw-h-10 focus:tw-ring-1 tw-ring-offset-2 tw-ring-black focus-visible:tw-outline-none">
-            <horizon-icon classes="tw-w-4 tw-h-4" name="arrow-left"></horizon-icon>
+            class="bg-gray-200 text-black border border-solid border-gray-200 w-9 h-9 flex justify-center items-center rounded-xl px-2.5 py-2 md:w-10 md:h-10 focus:ring-1 ring-offset-2 ring-black focus-visible:outline-none">
+            <horizon-icon classes="w-4 h-4" name="arrow-left"></horizon-icon>
           </a>
         }
         @if (!backLink) {
           <button (click)="backClicked.emit()"
-            class="tw-bg-gray-200 tw-text-black tw-border tw-border-solid tw-border-gray-200 tw-w-9 tw-h-9 tw-flex tw-justify-center tw-items-center tw-rounded-xl tw-px-2.5 tw-py-2 md:tw-w-10 md:tw-h-10 focus:tw-ring-1 tw-ring-offset-2 tw-ring-black focus-visible:tw-outline-none">
-            <horizon-icon classes="tw-w-4 tw-h-4" name="arrow-left"></horizon-icon>
+            class="bg-gray-200 text-black border border-solid border-gray-200 w-9 h-9 flex justify-center items-center rounded-xl px-2.5 py-2 md:w-10 md:h-10 focus:ring-1 ring-offset-2 ring-black focus-visible:outline-none">
+            <horizon-icon classes="w-4 h-4" name="arrow-left"></horizon-icon>
           </button>
         }
       }
@@ -39,7 +39,7 @@
 </div>
 
 <div
-  class="tw-flex tw-justify-center tw-flex-row tw-flex-wrap tw-gap-2.5 tw-items-center sm:tw-justify-between sm:tw-gap-5 sm:tw-items-baseline tw-flex-1 tw-basis-auto">
+  class="flex justify-center flex-row flex-wrap gap-2.5 items-center sm:justify-between sm:gap-5 sm:items-baseline flex-1 basis-auto">
   <ng-content select="[right-action]"></ng-content>
 
 </div>

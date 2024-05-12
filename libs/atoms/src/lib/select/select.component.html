@@ -1,35 +1,35 @@
-<label [class.tw-sr-only]="noLabel" [id]="id + '-label'"
-  class="tw-block tw-ml-1 tw-text-sm tw-font-medium tw-leading-5 tw-text-gray-900">
+<label [class.sr-only]="noLabel" [id]="id + '-label'"
+  class="block ml-1 text-sm font-medium leading-5 text-gray-900">
   <span>{{ label }}</span>
   @if (required) {
     <span> *</span>
   }
 </label>
-<div [class.tw-mt-2]="!noLabel" class="tw-relative">
+<div [class.mt-2]="!noLabel" class="relative">
   <button #trigger="cdkOverlayOrigin" (click)="toggle()" (keydown)="handleKeyboardNavigation($event)"
     [attr.aria-expanded]="isOpen" [attr.aria-labelledby]="id + '-label'"
           [disabled]="disabled" [ngClass]="{
-          'tw-py-1': size === 'small',
-          'tw-py-1.5': size === 'medium',
-          'tw-py-2': size === 'large'
+          'py-1': size === 'small',
+          'py-1.5': size === 'medium',
+          'py-2': size === 'large'
           }" aria-haspopup="listbox" cdkOverlayOrigin
-    class="{{ classes }} tw-relative tw-w-full tw-border tw-cursor-default tw-rounded-2xl tw-bg-white tw-pl-3 tw-pr-10 tw-text-left tw-text-gray-900 tw-shadow-sm focus:tw-outline-none focus:tw-ring-1 disabled:tw-bg-gray-50 sm:tw-leading-6"
+    class="{{ classes }} relative w-full border cursor-default rounded-2xl bg-white pl-3 pr-10 text-left text-gray-900 shadow-sm focus:outline-none focus:ring-1 disabled:bg-gray-50 sm:leading-6"
     type="button">
 
     <span [ngClass]="{
-          'tw-text-xs': size === 'small' || size === 'medium',
-          'tw-text-sm': size === 'large'
-          }" class="tw-block tw-truncate">
+          'text-xs': size === 'small' || size === 'medium',
+          'text-sm': size === 'large'
+          }" class="block truncate">
       {{ selectedItemsLabel || (placeholder) }}
     </span>
 
-    <span class="tw-pointer-events-none tw-absolute tw-inset-y-0 tw-right-0 tw-flex tw-items-center tw-pr-2">
-      <horizon-icon aria-hidden="true" classes="tw-h-5 tw-w-5 tw-text-gray-800" name="chevron-up-down"></horizon-icon>
+    <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+      <horizon-icon aria-hidden="true" classes="h-5 w-5 text-gray-800" name="chevron-up-down"></horizon-icon>
     </span>
     @if (invalid) {
       <span
-        class="tw-pointer-events-none tw-absolute tw-inset-y-0 tw-right-0 tw-flex tw-items-center tw-pr-2">
-        <horizon-icon aria-hidden="true" classes="tw-h-5 tw-w-5 tw-text-red-500" name="exclamation-circle"></horizon-icon>
+        class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+        <horizon-icon aria-hidden="true" classes="h-5 w-5 text-red-500" name="exclamation-circle"></horizon-icon>
       </span>
     }
   </button>
@@ -39,10 +39,10 @@
     cdkConnectedOverlay cdkConnectedOverlayHasBackdrop cdkScrollable
     >
     <ul [attr.aria-labelledby]="id + '-label'" [attr.aria-multiselectable]="multiple"
-      class="tw-z-10 tw-mt-1 tw-max-h-60 tw-w-full tw-overflow-auto tw-rounded-2xl tw-bg-white tw-py-1 tw-text-base tw-shadow-md tw-ring-1 tw-ring-black tw-ring-opacity-5 focus:tw-outline-none sm:tw-text-sm focus:tw-ring-gray-600 focus:tw-ring-opacity-100"
+      class="z-10 mt-1 max-h-60 w-full overflow-auto rounded-2xl bg-white py-1 text-base shadow-md ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm focus:ring-gray-600 focus:ring-opacity-100"
       role="listbox" tabindex="-1">
       @if (searchable) {
-        <li class="tw-px-1 tw-mb-2 tw-block">
+        <li class="px-1 mb-2 block">
           <horizon-search (valueChange)="searched.emit($event)" [id]="'search-' + id"
           [name]="'search-' + id"></horizon-search>
         </li>
@@ -53,29 +53,29 @@
           (mouseleave)="highlightedElement = undefined"
           [attr.aria-selected]="selectedItems.includes(item)"
           [id]="id + '-option-' + i"
-          [ngClass]="highlightedElement === i ? 'tw-text-white tw-bg-black' : 'tw-text-gray-900'"
-          class="tw-relative tw-cursor-pointer tw-py-2 tw-pl-3 tw-pr-9 tw-block" role="option"
+          [ngClass]="highlightedElement === i ? 'text-white bg-black' : 'text-gray-900'"
+          class="relative cursor-pointer py-2 pl-3 pr-9 block" role="option"
           >
-          <span [ngClass]="selectedItems.includes(item) ? 'tw-font-semibold' : 'tw-font-normal'"
-          class="tw-block tw-truncate tw-text-xs sm:tw-text-sm">{{ item.label }}</span>
+          <span [ngClass]="selectedItems.includes(item) ? 'font-semibold' : 'font-normal'"
+          class="block truncate text-xs sm:text-sm">{{ item.label }}</span>
           @if (selectedItems.includes(item)) {
             <span
-              [ngClass]="highlightedElement === i ? 'tw-text-white' : 'tw-text-green-600'"
-              class="tw-absolute tw-inset-y-0 tw-right-0 tw-flex tw-items-center tw-pr-4">
-              <horizon-icon aria-hidden="true" classes="tw-h-5 tw-w-5" name="check-circle"></horizon-icon>
+              [ngClass]="highlightedElement === i ? 'text-white' : 'text-green-600'"
+              class="absolute inset-y-0 right-0 flex items-center pr-4">
+              <horizon-icon aria-hidden="true" classes="h-5 w-5" name="check-circle"></horizon-icon>
             </span>
           }
         </li>
       }
 
       @if (!items.length) {
-        <li class="tw-relative tw-cursor-default tw-py-2 tw-pl-3 tw-pr-9 tw-block">Aucun résultat</li>
+        <li class="relative cursor-default py-2 pl-3 pr-9 block">Aucun résultat</li>
       }
     </ul>
   </ng-template>
 </div>
 @if (invalid) {
-  <p class="tw-text-sm tw-text-red-600 tw-truncate">
+  <p class="text-sm text-red-600 truncate">
     <ng-content></ng-content>
   </p>
 }
