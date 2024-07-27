@@ -1,4 +1,4 @@
-import { IPaginationParams, ISort } from '@sofitay/models';
+import { IPaginationParams, ISort } from '@sofipay/models';
 import { HttpParams } from '@angular/common/http';
 
 export const stringifySortParam = (sort: ISort): string => [sort.property, sort.direction].join(',');

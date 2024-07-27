@@ -1,10 +1,10 @@
 import { Component, HostBinding } from '@angular/core';
 
 import { LetDirective } from '@ngrx/component';
-import { NotificationComponent } from '@sofitay/atoms';
+import { NotificationComponent } from '@sofipay/atoms';
 import { Store } from '@ngrx/store';
 import { NOTIFICATIONS_SELECTORS } from '../../store/notifications.selectors';
-import { INotification } from '@sofitay/models';
+import { INotification } from '@sofipay/models';
 import { NotificationsUserActions } from '../../store/notifications.actions';
 
 @Component({

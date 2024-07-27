@@ -1,17 +1,13 @@
-<div [class.disabled]="disabled" [class.flex-row-reversed]="labelAfterCheck"
-  class='relative flex items-center gap-x-2'>
+<div [class.disabled]="disabled" class='relative flex items-center gap-x-2'>
   <div [ngClass]='invalid ? "text-red-500" : "text-gray-900"' class='min-w-0 leading-6'>
     <label [class.cursor-not-allowed]="disabled" [class.sr-only]="noLabel" [for]='id'
-      class='select-none font-medium'>
+           class='select-none text-sm font-medium text-gray-900 ms-2'>
       {{ label }}
-      @if (required) {
-        <span>*</span>
-      }
     </label>
   </div>
   <div class='flex items-center'>
     <input (change)='updateValue()' [checked]="checked" [disabled]="disabled" [id]='id' [name]='name'
-      class='h-3 w-3 rounded-full border-gray-300 text-black focus:ring-black focus:ring-1 focus-visible:outline-none'
-      type='radio'>
+           class='h-4 w-4 cursor-pointer rounded-full border-gray-300 text-grey-900 focus:ring-2 focus:ring-blue-500'
+           type='radio'>
   </div>
 </div>

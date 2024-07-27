@@ -1,7 +1,7 @@
 import { Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IconComponent } from '@sofitay/atoms';
-import { TIconName } from '@sofitay/models';
+import { IconComponent } from '@sofipay/atoms';
+import { TIconName } from '@sofipay/models';
 
 @Component({
   selector: 'horizon-card',

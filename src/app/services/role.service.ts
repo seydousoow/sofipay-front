@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { TRole } from '@sofitay/models';
+import { TRole } from '@sofipay/models';
 import { AuthenticationService } from './authentication.service';
 
 @Injectable()

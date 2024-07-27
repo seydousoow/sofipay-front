@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ListComponent } from './list.component';
 import { provideMockStore } from '@ngrx/store/testing';
-import { INotification } from '@sofitay/models';
+import { INotification } from '@sofipay/models';
 import { NotificationsUserActions } from '../../store/notifications.actions';
 
 describe('ListComponent', () => {

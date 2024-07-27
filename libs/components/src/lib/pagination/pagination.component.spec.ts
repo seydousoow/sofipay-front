@@ -2,15 +2,13 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PaginationComponent } from './pagination.component';
 import { SvgIconRegistryService, SvgLoader } from 'angular-svg-icon';
 import { provideMockStore } from '@ngrx/store/testing';
-import { ISelectOption } from '@sofitay/models';
+import { ISelectOption } from '@sofipay/models';
 
 class ResizeObserverMock {
   observe = jest.fn();
   disconnect = jest.fn();
   unobserve = jest.fn();
 }
-
-const translation = { 'pagination.page-out-of': '{{first}}-{{last}} de {{total}}' };
 
 describe('PaginationComponent', () => {
   let component: PaginationComponent;

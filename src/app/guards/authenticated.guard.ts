@@ -19,4 +19,4 @@ export class AuthenticatedGuard {
 export const isAuthenticated = (urlSegments: UrlSegment[], authService = inject(AuthenticatedGuard)) => authService.isAuthenticated(urlSegments);
 export const REDIRECT_KEY: string = 'redirect-key';
 export const CURRENT_USER_KEY: string = 'current_user';
-export const TOKEN_KEY: string = 'token';
+export const TOKEN_KEY: string = 'access_token';

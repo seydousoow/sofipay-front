@@ -1,23 +1,14 @@
 @if (opened) {
-  <dialog aria-labelledby="modal-title" aria-modal="true" class="relative z-[999]">
+  <div aria-labelledby="modal-title" aria-modal="true" class="relative" style="z-index: 999" role="dialog">
     <horizon-overlay></horizon-overlay>
-    <div class="fixed inset-0 z-[999] overflow-y-auto">
-    <div [ngClass]="{
-      'justify-center': horizontalAlignment === 'center',
-      'justify-start': horizontalAlignment === 'start',
-      'justify-end': horizontalAlignment === 'end',
-      'sm:items-center': horizontalAlignment === 'center',
-      'sm:items-start': horizontalAlignment === 'start',
-      'sm:items-end': horizontalAlignment === 'end',
-    }" class="flex min-h-full items-end p-4 text-center">
+    <div class="fixed inset-0 overflow-y-auto" style="z-index: 999">
+      <div class="flex items-center justify-center p-4 text-center" style="min-height: 100vh">
         <div (outsideClick)="close()" [ngClass]="sizeClass"
-          class="relative transform rounded-lg px-4 {{ noBackground ? 'bg-transparent' : 'bg-white shadow-xl' }} pb-4 pt-5 text-left transition-all sm:my-8 w-full sm:p-6"
-          horizonOutsideClick>
+             class="relative w-full transform rounded-lg bg-white p-4 text-left shadow-xl transition-all sm:my-8 sm:p-6"
+             horizonOutsideClick>
           @if (xDismissible) {
-            <div class="absolute right-0 top-0 pr-4 pt-4">
-              <button (click)="close()"
-                class="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-1 focus:ring-black focus:ring-offset-2"
-                type="button">
+            <div class="absolute top-0 right-0 pr-2 pt-2">
+              <button (click)="close()" class="rounded-md bg-primary text-white" type="button">
                 <span class="sr-only">Fermer</span>
                 <horizon-icon classes="h-5 w-5" name="close"></horizon-icon>
               </button>
@@ -27,5 +18,5 @@
         </div>
       </div>
     </div>
-  </dialog>
+  </div>
 }

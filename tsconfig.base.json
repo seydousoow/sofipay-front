@@ -16,13 +16,13 @@
     "baseUrl": ".",
     "paths": {
       "@libs/*": ["libs/*"],
-      "@sofitay/atoms": ["libs/atoms/src/index.ts"],
-      "@sofitay/components": ["libs/components/src/index.ts"],
-      "@sofitay/models": ["libs/models/src/index.ts"],
-      "@sofitay/notifications": ["libs/notifications/src/index.ts"],
-      "@sofitay/outside-click": ["libs/directive/outside-click/src/index.ts"],
-      "@sofitay/router-store": ["libs/router-store/src/index.ts"],
-      "@sofitay/utils": ["libs/utils/src/index.ts"]
+      "@sofipay/atoms": ["libs/atoms/src/index.ts"],
+      "@sofipay/components": ["libs/components/src/index.ts"],
+      "@sofipay/models": ["libs/models/src/index.ts"],
+      "@sofipay/notifications": ["libs/notifications/src/index.ts"],
+      "@sofipay/outside-click": ["libs/directive/outside-click/src/index.ts"],
+      "@sofipay/router-store": ["libs/router-store/src/index.ts"],
+      "@sofipay/utils": ["libs/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

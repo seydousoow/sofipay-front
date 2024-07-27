@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, EventEmitter, forwardRef, Input, NgZone, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CdkOverlayOrigin, OverlayModule } from '@angular/cdk/overlay';
-import { ISelectOption } from '@sofitay/models';
+import { ISelectOption } from '@sofipay/models';
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IconComponent } from '../icon/icon.component';
 import { InputComponent } from '../input/input.component';

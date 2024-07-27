@@ -1,6 +1,6 @@
 import { AfterViewChecked, Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ButtonComponent, IconComponent } from '@sofitay/atoms';
+import { ButtonComponent, IconComponent } from '@sofipay/atoms';
 import { CdkStepper, CdkStepperModule } from '@angular/cdk/stepper';
 
 @Component({

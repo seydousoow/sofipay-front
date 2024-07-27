@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { Params, RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
-import { ButtonComponent, IconComponent } from '@sofitay/atoms';
+import { ButtonComponent, IconComponent } from '@sofipay/atoms';
 
 @Component({
   selector: 'horizon-view-header',

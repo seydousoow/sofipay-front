@@ -1,32 +1,24 @@
 <div [class.disabled]="disabled" class='relative flex items-center gap-x-2'>
-  @if (!labelAfterCheck) {
-    <div [ngClass]='invalid ? "text-red-500" : ""'
-      class='min-w-0 leading-6'>
-      <label [class.cursor-not-allowed]="disabled" [class.sr-only]="noLabel" [for]='id'
-        class='select-none font-medium line-clamp-2'>
-        {{ label }}
-        @if (required) {
-          <span>*</span>
-        }
-      </label>
-    </div>
-  }
-  <div class='flex items-center'>
-    <input (change)='updateValue($event)' [checked]="checked" [disabled]="disabled" [id]='id'
-      [indeterminate]="indeterminate"
-      [name]='id'
-      class='h-3 w-3 rounded border-gray-300 text-black focus:ring-black focus:ring-1 focus-visible:outline-none'
-      type='checkbox'>
+  <input (change)='updateValue($event)' [checked]="checked" [disabled]="disabled" [id]='id'
+         [indeterminate]="indeterminate"
+         [name]='id'
+         class='h-4 w-4 cursor-pointer rounded border-primary text-black focus:ring-1 focus:ring-primary focus-visible:outline-none'
+         type='checkbox'>
+  <div [class.text-red-500]='invalid' >
+    <label (click)="handleLabelClick && labelClicked.emit()"
+           [class.cursor-not-allowed]="disabled"
+           [class.hover:!text-blue-700]="handleLabelClick"
+           [class.cursor-pointer]="handleLabelClick"
+           [class.text-blue-500]="handleLabelClick"
+           [class.sr-only]="noLabel"
+           [class.underline]="handleLabelClick"
+           [for]='id'
+           class='select-none text-sm text-grey-900 font-medium line-clamp-2 min-w-0'>
+      {{ label }}
+      @if (required) {
+        <span>*</span>
+      }
+    </label>
   </div>
-  @if (labelAfterCheck) {
-    <div [ngClass]='invalid ? "text-red-500" : ""'
-      class='min-w-0 leading-6'>
-      <label [class.cursor-not-allowed]="disabled" [class.sr-only]="noLabel" [for]='id'
-        class='select-none font-medium line-clamp-2'>
-        {{ label }}
-        @if (required) {
-          <span>*</span>
-        }</label>
-      </div>
-    }
-  </div>
+
+</div>

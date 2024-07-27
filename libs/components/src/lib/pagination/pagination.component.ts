@@ -1,7 +1,7 @@
 import { AfterViewChecked, Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 
-import { IPagination, ISelectOption } from '@sofitay/models';
-import { ButtonComponent, IconComponent, SelectComponent } from '@sofitay/atoms';
+import { IPagination, ISelectOption } from '@sofipay/models';
+import { ButtonComponent, IconComponent, SelectComponent } from '@sofipay/atoms';
 
 @Component({
   selector: 'horizon-pagination',

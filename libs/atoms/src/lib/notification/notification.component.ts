@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-import { INotification } from '@sofitay/models';
-import { IconComponent } from '../icon/icon.component';
+import { INotification } from '@sofipay/models';
+import { IconComponent } from '@libs/atoms/src';
 
 @Component({
   selector: 'horizon-notification',

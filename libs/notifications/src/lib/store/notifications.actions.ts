@@ -1,5 +1,5 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
-import { INotification } from '@sofitay/models';
+import { INotification } from '@sofipay/models';
 
 export const NotificationsUserActions = createActionGroup({
   source: 'Notifications',

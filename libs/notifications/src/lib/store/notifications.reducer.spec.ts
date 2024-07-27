@@ -1,4 +1,4 @@
-import { INotification } from '@sofitay/models';
+import { INotification } from '@sofipay/models';
 import { initialState, notificationsFeature } from './notifications.reducer';
 import { NotificationsUserActions } from './notifications.actions';
 

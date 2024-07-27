@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
-  displayName: 'sofitay',
+  displayName: 'sofipay',
   preset: './jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: './coverage/sofitay',
+  coverageDirectory: './coverage/sofipay',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
-import { ISort, ITableColumn } from '@sofitay/models';
+import { ISort, ITableColumn } from '@sofipay/models';
 import { NgClass } from '@angular/common';
-import { CheckboxComponent, IconComponent } from '@sofitay/atoms';
+import { CheckboxComponent, IconComponent } from '@sofipay/atoms';
 
 @Component({
   selector: 'horizon-table',

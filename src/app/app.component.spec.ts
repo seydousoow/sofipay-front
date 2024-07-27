@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { NxWelcomeComponent } from './nx-welcome.component';
 import { SvgIconRegistryService } from 'angular-svg-icon';
 
 describe('AppComponent', () => {
@@ -8,7 +7,7 @@ describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent, NxWelcomeComponent],
+      imports: [AppComponent],
       providers: [
         { provide: SvgIconRegistryService, useValue: { loadSvg: jest.fn() } }
       ]
@@ -24,7 +23,7 @@ describe('AppComponent', () => {
     expect(component).toBeDefined();
   });
 
-  it(`should have as title 'sofitay'`, () => {
-    expect(component.title).toEqual('sofitay');
+  it(`should have as title 'sofipay'`, () => {
+    expect(component.title).toEqual('SOFIPAY');
   });
 });

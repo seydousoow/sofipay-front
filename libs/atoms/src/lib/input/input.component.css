@@ -4,6 +4,11 @@
   margin: 0;
 }
 
+:host {
+  border: none;
+  background-color: unset;
+}
+
 :host input[type=number] {
   -moz-appearance: textfield;
 }

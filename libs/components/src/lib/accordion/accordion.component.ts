@@ -1,8 +1,8 @@
 import { AfterViewChecked, Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IconComponent } from '@sofitay/atoms';
+import { IconComponent } from '@sofipay/atoms';
 import { CdkAccordionItem, CdkAccordionModule } from '@angular/cdk/accordion';
-import { TIconName } from '@sofitay/models';
+import { TIconName } from '@sofipay/models';
 
 @Component({
   selector: 'horizon-accordion',

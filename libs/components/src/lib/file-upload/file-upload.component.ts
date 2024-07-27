@@ -1,6 +1,6 @@
 import { Component, EventEmitter, forwardRef, Input, OnInit, Output } from '@angular/core';
-import { TFileExtension } from '@sofitay/models';
-import { ButtonComponent, IconComponent } from '@sofitay/atoms';
+import { TFileExtension } from '@sofipay/models';
+import { ButtonComponent, IconComponent } from '@sofipay/atoms';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 

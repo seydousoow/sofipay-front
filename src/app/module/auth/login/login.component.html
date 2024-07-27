@@ -1,1 +1,75 @@
-<p>login works!</p>
+<div class="relative max-h-full w-full max-w-md p-4">
+  <div class="relative rounded-lg bg-white shadow">
+    <div class="flex flex-col items-center justify-between rounded-lg p-4 md:p-5">
+
+      <h3 class="text-2xl font-black text-primary">SOFIPAY</h3>
+      <h3 class="my-4 font-semibold text-gray-700 sm:text-base">Se connecter</h3>
+
+      <div class="w-full mb-4 border-b border-gray-200">
+        <ul class="-mb-px grid grid-cols-2 text-center text-sm font-medium text-gray-500 login-option">
+          <li>
+            <a (click)="switchLoginType('phone')"
+               [attr.aria-current]="loginType === 'phone' ? 'page' : false"
+               [class.active]="loginType === 'phone'"
+               class="inline-flex w-full items-center justify-center gap-x-3 rounded-t-lg border-b-2 p-2 group">
+              <horizon-icon classes="w-4 h-4" name="phone"></horizon-icon>
+              Téléphone
+            </a>
+          </li>
+          <li>
+            <a (click)="switchLoginType('mail')"
+               [attr.aria-current]="loginType === 'mail' ? 'page' : false"
+               [class.active]="loginType === 'mail'"
+               class="inline-flex w-full items-center justify-center gap-x-2 rounded-t-lg border-b-2 p-2 group">
+              <horizon-icon classes="w-4 h-4" name="mail"></horizon-icon>
+              Email
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <form [formGroup]="form" class="w-full p-4 pt-0 space-y-6">
+        <div>
+          @if (loginType === 'phone') {
+            <horizon-input [invalid]="f.login.touched && f.login.invalid"
+                           formControlName="login" inputType="phone-number" label="N téléphone" name="login" required>
+              @if (f.login.hasError('required')) {
+                Ce champ est requis.
+              } @else if (f.login.hasError('invalidPhoneNumber')) {
+                Ce numéro de téléphone est invalide.
+              }
+            </horizon-input>
+          }
+
+          @if (loginType === 'mail') {
+            <horizon-input [invalid]="f.login.touched && f.login.invalid"
+                           formControlName="login" inputType="email" label="Email" name="login" placeholder="Ex: mail@mail.com" required>
+              @if (f.login.hasError('required')) {
+                Ce champ est requis.
+              } @else if (f.login.hasError('email')) {
+                Le format de cet email est invalide.
+              }
+            </horizon-input>
+          }
+        </div>
+        <div>
+          <horizon-input [invalid]="f.password.touched && f.password.invalid"
+                         formControlName="password" inputType="password" label="Mot de passe" name="password" required>
+            Ce champ est requis.
+          </horizon-input>
+        </div>
+
+        <span class="inline-block w-full cursor-pointer text-end text-sm text-blue-900 hover:underline" routerLink="">Mot de passe oublié?</span>
+
+        <button (click)="doLogin()" [disabled]="form.invalid"
+                class="w-full rounded-lg bg-blue-800 px-5 text-center text-sm font-medium text-white py-2.5 hover:bg-blue-900 focus:outline-none focus:ring-4 focus:ring-blue-300"
+                type="submit">
+          Se connecter
+        </button>
+        <div class="text-sm font-medium text-gray-500">
+          Pas enregistrer? <span class="cursor-pointer text-blue-900 hover:underline" routerLink="/register">Créer un compte</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

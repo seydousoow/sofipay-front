@@ -1,4 +1,4 @@
-import { INotification, INotificationHeader, TNotificationHeader } from '@sofitay/models';
+import { INotification, INotificationHeader, TNotificationHeader } from '@sofipay/models';
 import { createFeature, createReducer, on } from '@ngrx/store';
 import { NotificationsUserActions } from './notifications.actions';
 

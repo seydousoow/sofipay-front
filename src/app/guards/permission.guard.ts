@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { Router, UrlTree } from '@angular/router';
-import { TRole } from '@sofitay/models';
+import { TRole } from '@sofipay/models';
 import { RoleService } from '../services/role.service';
 
 @Injectable()

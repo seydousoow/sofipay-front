@@ -1,0 +1,116 @@
+<div class="relative max-h-full w-full max-w-xl p-4 md:max-w-2xl">
+  <div class="relative rounded-lg bg-white shadow">
+    <div class="flex flex-col items-center justify-between rounded-lg p-4">
+      <h3 class="text-2xl font-black text-primary">
+        SOFIPAY
+      </h3>
+      <hr class="my-2 h-0 w-full border-0" />
+      <h3 class="font-semibold text-gray-700 sm:text-base">
+        Créer mon compte
+      </h3>
+      <hr class="mt-4 mb-3 w-full border-0 h-0.5 bg-primary" />
+      <div class="w-full px-0 py-4">
+        <form [formGroup]="form" class="grid grid-cols-1 gap-x-2 gap-y-5 md:grid-cols-2">
+          <div>
+            <horizon-input [invalid]="f.firstname.touched && f.firstname.invalid" formControlName="firstname" label="Prénom" name="firstname"
+                           required>
+              @if (f.firstname.hasError('required')) {
+                Ce champs est requis
+              } @else if (f.firstname.hasError('minlength')) {
+                Le prénom doit contenir au moins deux caractères
+              }
+            </horizon-input>
+          </div>
+          <div>
+            <horizon-input [invalid]="f.lastname.touched && f.lastname.invalid" formControlName="lastname" label="Nom" name="lastname" required>
+              @if (f.lastname.hasError('required')) {
+                Ce champs est requis
+              } @else if (f.lastname.hasError('minlength')) {
+                Le nom doit contenir au moins deux caractères
+              }
+            </horizon-input>
+          </div>
+          <div>
+            <horizon-input [invalid]="f.email.touched && f.email.invalid" formControlName="email" inputType="email" label="Email" name="email"
+                           required>
+              @if (f.email.hasError('required')) {
+                Ce champs est requis
+              } @else if (f.email.hasError('email')) {
+                Cette email est invalide.
+              } @else if (f.email.hasError('badEmailDomain')) {
+                Ce domaine de messagerie n'est pas autorisé.
+              }
+            </horizon-input>
+          </div>
+          <div>
+            <horizon-input [invalid]="f.login.touched && f.login.invalid"
+                           formControlName="login" inputType="phone-number" label="N téléphone" name="login" required>
+              @if (f.login.hasError('required')) {
+                Ce champ est requis.
+              } @else if (f.login.hasError('invalidPhoneNumber')) {
+                Ce numéro de téléphone est invalide.
+              }
+            </horizon-input>
+          </div>
+          <div>
+            <horizon-input [invalid]="f.password.touched && f.password.invalid"
+                           formControlName="password" inputType="password" label="Mot de passe" name="password" required>
+              Ce champ est requis.
+            </horizon-input>
+          </div>
+          <div>
+            <horizon-input [invalid]="f.confirmation.touched && f.confirmation.invalid"
+                           formControlName="confirmation" inputType="password" label="Confirmer" name="password" required>
+              @if (f.confirmation.hasError('required')) {
+                Ce champ est requis.
+              } @else if (f.confirmation.hasError('mustMatch')) {
+                Les mots de passe ne sont pas identiques.
+              }
+            </horizon-input>
+          </div>
+
+          <div class="grid grid-cols-1 gap-y-4 md:col-span-2">
+            <p class="text-sm font-medium text-gray-900">Comment souhaitez-vous recevoir votre code de validation ?
+              <span class="sup">*</span></p>
+            <div class="flex">
+              @for (item of communicationsOption; track item.value) {
+                <horizon-radio [id]="'canal-' + item.value | lowercase" name="communication" [label]="item.label"
+                               (selected)="f.preferredCanal.setValue(item.value)"
+                               [checked]="f.preferredCanal.value === item.value"></horizon-radio>
+              }
+            </div>
+          </div>
+          <div class="text-sm text-medium text-gray-900 md:col-span-2">
+            <horizon-checkbox (labelClicked)="cgu.open()"
+                              (toggled)="f.cgu.setValue($event)"
+                              [checked]="f.cgu.value"
+                              [invalid]="f.cgu.touched && !f.cgu.value"
+                              handleLabelClick
+                              id="cgu"
+                              label="J'accepte les termes et conditions générale d'utilisation"
+                              required></horizon-checkbox>
+          </div>
+        </form>
+
+        <div class="space-y-5">
+          <button [disabled]="form.invalid"
+                  class="my-4 w-full rounded-lg bg-blue-800 px-5 text-center text-sm font-medium text-white py-2.5 disabled:opacity-35 hover:bg-blue-900 focus:outline-none focus:ring-4 focus:ring-blue-300"
+                  type="submit">
+            Enregistrer
+          </button>
+          <div class="text-end text-sm font-medium text-gray-500">
+            Déjà enregistrer? <span class="cursor-pointer text-blue-900 hover:underline" routerLink="/login">Se connecter</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<horizon-modal #cgu xDismissible sizeClass="w-screen max-w-sm sm:max-w-screen-xs md:max-w-screen-md">
+  <p class="text-xl text-center font-black text-primary">
+    SOFIPAY
+  </p>
+  <hr class="my-1 h-0 w-full border-0" />
+  <p class="text-sm text-center text-primary underline">Conditions générales d'utilisation</p>
+</horizon-modal>

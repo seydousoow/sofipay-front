@@ -3,3 +3,56 @@
 @tailwind utilities;
 
 /* You can add global styles to this file, and also import other style files */
+
+@layer components {
+  .sup {
+    @apply relative -top-1 align-baseline text-sm font-medium text-gray-900 ms-0.5;
+  }
+}
+
+.bg-radient {
+  background: rgb(28, 24, 116);
+  background: -moz-linear-gradient(120deg, rgba(28, 24, 116, 1) 0%, rgba(11, 76, 164, 1) 30%, rgba(3, 43, 96, 1) 54%, rgba(10, 52, 112, 1) 76%, rgba(17, 70, 146, 1) 100%);
+  background: -webkit-linear-gradient(120deg, rgba(28, 24, 116, 1) 0%, rgba(11, 76, 164, 1) 30%, rgba(3, 43, 96, 1) 54%, rgba(10, 52, 112, 1) 76%, rgba(17, 70, 146, 1) 100%);
+  background: linear-gradient(120deg, rgba(28, 24, 116, 1) 0%, rgba(11, 76, 164, 1) 30%, rgba(3, 43, 96, 1) 54%, rgba(10, 52, 112, 1) 76%, rgba(17, 70, 146, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1c1874", endColorstr="#114692", GradientType=1);
+}
+
+.cdk-overlay-container:empty {
+  display: none;
+}
+
+.cdk-overlay-container {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+}
+
+.cdk-overlay-pane {
+  position: absolute;
+  z-index: 1000;
+  pointer-events: auto;
+}
+
+.cdk-overlay-connected-position-bounding-box {
+  position: absolute;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  min-width: 1px;
+  min-height: 1px;
+}
+
+.cdk-overlay-backdrop {
+  pointer-events: auto;
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

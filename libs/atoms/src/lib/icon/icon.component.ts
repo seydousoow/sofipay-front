@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { HttpClientModule } from '@angular/common/http';
-import { TIconName } from '@sofitay/models';
+import { TIconName } from '@sofipay/models';
 
 @Component({
   selector: 'horizon-icon',
