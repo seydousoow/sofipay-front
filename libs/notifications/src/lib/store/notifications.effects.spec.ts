@@ -1,17 +1,17 @@
 import { INotification } from '@sofipay/models';
 import { TestBed } from '@angular/core/testing';
-import { provideMockActions } from '@ngrx/effects/testing';
-import { Observable } from 'rxjs';
-import { Action } from '@ngrx/store';
 import { NotificationsEffects } from './notifications.effects';
 import { cold, hot, Scheduler } from 'jest-marbles';
 import { NotificationsUserActions } from './notifications.actions';
+import { Observable } from 'rxjs';
+import { Action } from '@ngrx/store';
+import { provideMockActions } from '@ngrx/effects/testing';
 
 let action$ = new Observable<Action>();
 TestBed.configureTestingModule({
   providers: [
     NotificationsEffects,
-    provideMockActions(() => action$),
+    provideMockActions(() => action$)
   ]
 });
 

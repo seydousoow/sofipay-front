@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import {asy} from '@angular/core';
 import { SvgIconRegistryService } from 'angular-svg-icon';
 
 describe('AppComponent', () => {
