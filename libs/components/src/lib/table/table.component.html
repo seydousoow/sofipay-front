@@ -3,53 +3,53 @@
     <caption class="caption">{{ caption }}</caption>
   }
   <thead [class.sticky]="stickyPx" [ngClass]="headerColor"
-    [style.top]="stickyPx + 'px'" class="z-10">
-    <tr>
-      @for (column of columns; track column; let first = $first; let last = $last) {
-        <th
-          [class.lg:rounded-tl-3xl]="first"
-          [class.lg:rounded-tr-3xl]="last"
-          [class]="column.class"
-          [style.max-width]="column.width ? column.width + '%' : 'auto'"
-          [style.width]="column.width ? column.width + '%' : 'auto'">
-          @if (column.sortableField) {
-            <button (click)="sortBy(column.sortableField)"
-              [class.justify-center]="column.class === 'text-center'"
-              class="flex items-center gap-x-2" tabindex="-1">
-              <span [textContent]="column.name" class="uppercase font-normal"></span>
-              @if (sort.property !== column.sortableField) {
+         [style.top]="stickyPx + 'px'" class="z-10">
+  <tr>
+    @for (column of columns; track column; let first = $first; let last = $last) {
+      <th
+        [class.lg:rounded-tl-3xl]="first"
+        [class.lg:rounded-tr-3xl]="last"
+        [class]="column.class"
+        [style.max-width]="column.width ? column.width + '%' : 'auto'"
+        [style.width]="column.width ? column.width + '%' : 'auto'">
+        @if (column.sortableField) {
+          <button (click)="sortBy(column.sortableField)"
+                  [class.justify-center]="column.class === 'text-center'"
+                  class="flex items-center gap-x-2" tabindex="-1">
+            <span [textContent]="column.name" class="uppercase font-normal"></span>
+            @if (sort.property !== column.sortableField) {
+              <horizon-icon
+                class="focus:ring-1 ring-black focus-visible:outline-none rounded-full"
+                classes="w-3 h-3" name="chevron-up-down" tabindex="0">
+              </horizon-icon>
+            } @else {
+              @if (sort.direction === 'asc') {
                 <horizon-icon
                   class="focus:ring-1 ring-black focus-visible:outline-none rounded-full"
-                  classes="w-3 h-3" name="chevron-up-down" tabindex="0">
-                </horizon-icon>
-              } @else {
-                @if (sort.direction === 'asc') {
-                  <horizon-icon
-                    class="focus:ring-1 ring-black focus-visible:outline-none rounded-full"
-                    classes="w-3"
+                  classes="w-3"
                   name="caret-up-fill" tabindex="0"></horizon-icon>
-                }
-                @if (sort.direction === 'desc') {
-                  <horizon-icon
-                    class="focus:ring-1 ring-black focus-visible:outline-none rounded-full"
-                    classes="w-3" name="caret-down-fill"
-                  tabindex="0"></horizon-icon>
-                }
               }
-            </button>
-          } @else {
-            @if (column.name !== 'checkbox') {
-              <span class="uppercase font-normal">{{ column.name }}</span>
-            } @else {
-              <horizon-checkbox (toggled)="toggle($event)" [checked]="check" [noLabel]="true" id="random" label=""></horizon-checkbox>
+              @if (sort.direction === 'desc') {
+                <horizon-icon
+                  class="focus:ring-1 ring-black focus-visible:outline-none rounded-full"
+                  classes="w-3" name="caret-down-fill"
+                  tabindex="0"></horizon-icon>
+              }
             }
+          </button>
+        } @else {
+          @if (column.name !== 'checkbox') {
+            <span class="uppercase font-normal">{{ column.name }}</span>
+          } @else {
+            <horizon-checkbox (toggled)="toggle($event)" [checked]="check" [noLabel]="true" id="random" label=""></horizon-checkbox>
           }
-        </th>
-      }
-    </tr>
+        }
+      </th>
+    }
+  </tr>
   </thead>
 
   <tbody>
-    <ng-content></ng-content>
+  <ng-content></ng-content>
   </tbody>
 </table>

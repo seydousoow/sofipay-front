@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { booleanAttribute, Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { ISort, ITableColumn } from '@sofipay/models';
 import { NgClass } from '@angular/common';
 import { CheckboxComponent, IconComponent } from '@sofipay/atoms';
@@ -18,7 +18,7 @@ export class TableComponent implements OnInit {
   @Input() sort!: ISort;
   @Input() caption!: string; // unused in pb
   @Input() stickyPx = 0;
-  @Input() check = false;
+  @Input({transform: booleanAttribute}) check = false;
 
   @Output() checked = new EventEmitter<boolean>(); // unused in pb
   @Output() sorted = new EventEmitter<ISort>();

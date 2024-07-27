@@ -115,9 +115,3 @@ horizon-table > table thead.magnolia + tbody tr td {
 horizon-table > table tbody td.actions-cell {
   @apply absolute top-0 p-0 right-2.5 lg:relative lg:top-auto lg:right-auto justify-center before:lg:content-[""] before:lg:w-px before:lg:top-1.5 before:lg:left-0 before:lg:absolute before:lg:bg-gray-200 before:lg:h-[calc(100%-12px)] after:rounded-none after:rounded-bl-2xl after:rounded-br-2xl;
 }
-
-@media screen and (min-width: 1024px) {
-  horizon-table > table tbody td.actions-cell > span.justify-center {
-    justify-content: center;
-  }
-}
