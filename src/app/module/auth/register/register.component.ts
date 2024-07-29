@@ -52,7 +52,7 @@ export class RegisterComponent {
     preferredCanal: new FormControl('SMS', { nonNullable: true, validators: [Validators.required] }),
     cgu: new FormControl<boolean>(false, { nonNullable: true, validators: [Validators.requiredTrue] })
   }, {
-    validators: [mustMatch('password', 'confirmation')]
+    validators: [mustMatch('secret', 'confirmation')]
   });
 
   readonly communicationsOption: ISelectOption<'SMS' | 'EMAIL'>[] = [

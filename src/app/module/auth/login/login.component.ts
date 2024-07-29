@@ -13,10 +13,13 @@ import {
   ɵTypedOrUntyped
 } from '@angular/forms';
 import { isPhoneNumberValid } from '@sofipay/utils';
+import { AuthenticationService } from '../../../services/authentication.service';
+import { parsePhoneNumber } from 'libphonenumber-js';
+import { take } from 'rxjs';
 
 type TLoginForm = {
   login: FormControl<string>,
-  password: FormControl<string>
+  secret: FormControl<string>
 }
 
 @Component({
@@ -30,34 +33,40 @@ export class LoginComponent {
 
   @HostBinding('class.bg-radient') radient: boolean = true;
 
-  public loginType: 'phone' | 'mail' = 'phone';
+  public loginType: 'mobile' | 'mail' = 'mobile';
 
   readonly form: FormGroup<TLoginForm> = new FormGroup(<TLoginForm>{
     login: new FormControl('', {
       nonNullable: true, validators: [Validators.required, isPhoneNumberValid()]
     }),
-    password: new FormControl('', { nonNullable: true, validators: [Validators.required] })
+    secret: new FormControl('', { nonNullable: true, validators: [Validators.required] })
   });
+
+  constructor(private authService: AuthenticationService) {
+  }
 
   get f(): ɵTypedOrUntyped<TLoginForm, TLoginForm, { [p: string]: AbstractControl }> {
     return this.form.controls;
   }
 
   doLogin(): void {
-
+    const body = { ...this.form.getRawValue() };
+    if (this.loginType === 'mobile') {
+      body.login = parsePhoneNumber(body.login, 'SN').formatInternational().replaceAll(/\s/g, '');
+    }
+    this.authService.login(body, this.loginType).pipe(take(1)).subscribe();
   }
 
-  switchLoginType(type: 'mail' | 'phone'): void {
+  switchLoginType(type: 'mail' | 'mobile'): void {
     if (this.loginType === type)
       return;
     this.loginType = type;
     this.f.login.setValue('');
-    if (this.loginType === 'phone') {
-      this.f.login.removeValidators(Validators.email);
-      this.f.login.addValidators(isPhoneNumberValid());
+    this.f.login.clearValidators();
+    if (this.loginType === 'mobile') {
+      this.f.login.addValidators([Validators.required, isPhoneNumberValid()]);
     } else if (this.loginType === 'mail') {
-      this.f.login.removeValidators(isPhoneNumberValid());
-      this.f.login.addValidators(Validators.email);
+      this.f.login.addValidators([Validators.required, Validators.email]);
     }
     this.f.login.markAsUntouched();
   }

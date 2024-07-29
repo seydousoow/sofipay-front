@@ -58,7 +58,7 @@ export class LayoutComponent {
   }
 
   get menu(): IMenuItem[] {
-    if (this.roleService.isAdmin())
+    if (this.roleService.isMaster())
       return this.adminMenu;
     if (this.roleService.isClient())
       return this.clientMenu;

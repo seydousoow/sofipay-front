@@ -1,4 +1,4 @@
-export type TRole = 'TRANSPORTER' | 'CLIENT' | 'ADMIN';
+export type TRole = 'TRANSPORTER' | 'CLIENT' | 'MASTER';
 
 type TCustomerFilePermission = 'READ_CUSTOMER_FILE';
 

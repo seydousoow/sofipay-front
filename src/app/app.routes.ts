@@ -17,7 +17,7 @@ export const appRoutes: Route[] = [
     children: [
       {
         path: 'admin',
-        canMatch: [() => hasPermission('ADMIN')],
+        canMatch: [() => hasPermission('MASTER')],
         loadChildren: () => import('./router/admin.routes')
       },
       {

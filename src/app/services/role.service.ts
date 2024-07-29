@@ -8,8 +8,8 @@ export class RoleService {
   constructor(private auth: AuthenticationService) {
   }
 
-  public isAdmin(): boolean {
-    return this.role === 'ADMIN';
+  public isMaster(): boolean {
+    return this.role === 'MASTER';
   }
 
   public isTransporter(): boolean {

@@ -8,9 +8,9 @@
       <div class="w-full mb-4 border-b border-gray-200">
         <ul class="-mb-px grid grid-cols-2 text-center text-sm font-medium text-gray-500 login-option">
           <li>
-            <a (click)="switchLoginType('phone')"
-               [attr.aria-current]="loginType === 'phone' ? 'page' : false"
-               [class.active]="loginType === 'phone'"
+            <a (click)="switchLoginType('mobile')"
+               [attr.aria-current]="loginType === 'mobile' ? 'page' : false"
+               [class.active]="loginType === 'mobile'"
                class="inline-flex w-full items-center justify-center gap-x-3 rounded-t-lg border-b-2 p-2 group">
               <horizon-icon classes="w-4 h-4" name="phone"></horizon-icon>
               Téléphone
@@ -30,9 +30,10 @@
 
       <form [formGroup]="form" class="w-full p-4 pt-0 space-y-6">
         <div>
-          @if (loginType === 'phone') {
-            <horizon-input [invalid]="f.login.touched && f.login.invalid"
-                           formControlName="login" inputType="phone-number" label="N téléphone" name="login" required>
+          @if (loginType === 'mobile') {
+            <horizon-input [invalid]="!f.login.untouched && f.login.invalid"
+                           formControlName="login" inputType="phone-number" label="N téléphone" name="auth" autocomplete="off"
+                           aria-autocomplete="none" required>
               @if (f.login.hasError('required')) {
                 Ce champ est requis.
               } @else if (f.login.hasError('invalidPhoneNumber')) {
@@ -42,8 +43,9 @@
           }
 
           @if (loginType === 'mail') {
-            <horizon-input [invalid]="f.login.touched && f.login.invalid"
-                           formControlName="login" inputType="email" label="Email" name="login" placeholder="Ex: mail@mail.com" required>
+            <horizon-input [invalid]="!f.login.untouched && f.login.invalid"
+                           formControlName="login" inputType="email" label="Email" name="auth" autocomplete="off" aria-autocomplete="none"
+                           placeholder="Ex: mail@mail.com" required>
               @if (f.login.hasError('required')) {
                 Ce champ est requis.
               } @else if (f.login.hasError('email')) {
@@ -53,8 +55,8 @@
           }
         </div>
         <div>
-          <horizon-input [invalid]="f.password.touched && f.password.invalid"
-                         formControlName="password" inputType="password" label="Mot de passe" name="password" required>
+          <horizon-input [invalid]="!f.secret.untouched && f.secret.invalid"
+                         formControlName="secret" id="secret" inputType="password" label="Mot de passe" name="secret" required>
             Ce champ est requis.
           </horizon-input>
         </div>

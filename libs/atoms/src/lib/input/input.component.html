@@ -33,12 +33,13 @@
         <input
           (keyup)="updateValue($event)"
           [disabled]="disabled"
-          [id]="id"
+          [id]="id || name"
           [name]="name || id"
           [ngClass]="classes"
           [type]="showPassword ? 'text': 'password'"
           [value]="value"
           autocomplete="off"
+          aria-autocomplete="none"
           class="text-xs shadow-md disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-200 disabled:text-gray-900 sm:text-sm pe-10"
           placeholder="Mot de passe" />
         <div class="absolute inset-y-0 end-0 flex items-center pe-3.5 cursor-pointer" (click)="showPassword = !showPassword">
